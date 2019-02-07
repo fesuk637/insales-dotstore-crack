@@ -1,0 +1,570 @@
+
+
+
+<div id="insales-section-breadcrumb" class="insales-section insales-section-breadcrumb">
+	<div class="breadcrumb-scheme-01">
+		<div class="container">
+			{% include "breadcrumb" %}
+		</div>
+	</div>
+</div>
+
+
+<div itemscope itemtype="http://schema.org/Product" data-recently-view="{{product.id}}">
+	<div id="insales-section-product" class="insales-section insales-section-product">
+		<div class="container">
+			<div class="row">
+				<div class="col-12 col-lg-6">
+					<div class="product-images">
+
+						<div class="product-image d-none d-md-block"><a href="{{ product.first_image.large_url}}" class="js-product-image-thumb product-image-thumb product-image-thumb--1x1 product-image-thumb--contain" data-index="1"><span class="product-gallery-thumb-item" style="background-image: url({{ product.first_image.large_url}});"></span></a></div>
+						<div class="product-gallery">
+							<div class="js-owl-carousel-gallery owl-carousel owl-gallery">
+
+              {% for image in product.images %}
+                <a href="{{image.url}}" class="js-product-gallery-thumb product-gallery-thumb product-gallery-thumb--1x1 product-gallery-thumb--contain" data-index="{{forloop.index}}">
+                  <span class="product-gallery-thumb-item" style="background-image: url({{image.url}});"></span>
+                </a>
+              {% endfor %}
+              </div>
+              </div>
+              <div class="hidden" hidden>
+              {% for image in product.images %}
+                <a href="{{image.url}}" class="js-product-gallery-thumb-{{forloop.index}} data-fancybox" data-fancybox="gallery" data-caption="{{image.title}}"></a>
+                </a>
+              {% endfor %}
+              </div>
+					</div>
+				</div>
+
+				<div class="col-12 col-lg-6">
+					<div class="product-data">
+            <form action="{{ cart_url }}" method="post" data-product-id="{{ product.id }}" data-main-form>
+
+							<span class="product-labels">
+                {%for property in product.properties%}
+                  {%if property.handle == 'label'%}
+                    {% for characteristic in property.characteristics %}
+                      <span class="product-label product-label--bundle">{{characteristic.name}}</span>
+                    {% endfor%}
+                  {%else%}
+                  {%endif%}
+                {%endfor%}
+              </span>
+							<h1 class="product-title" itemprop="name">{{product.title}}</h1>
+
+								<div class="alert alert--default product-variants-loader js-product-variants-loader d-none">
+                <div class="row no-gutters align-items-center">
+                <div class="col-auto">
+                <svg class="svg-inline--fa fa-spinner-third fa-w-16 fa-spin fa-2x" aria-hidden="true" data-prefix="far" data-icon="spinner-third" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg><path fill="currentColor" d="M460.116 373.846l-20.823-12.022c-5.541-3.199-7.54-10.159-4.663-15.874 30.137-59.886 28.343-131.652-5.386-189.946-33.641-58.394-94.896-95.833-161.827-99.676C261.028 55.961 256 50.751 256 44.352V20.309c0-6.904 5.808-12.337 12.703-11.982 83.556 4.306 160.163 50.864 202.11 123.677 42.063 72.696 44.079 162.316 6.031 236.832-3.14 6.148-10.75 8.461-16.728 5.01z"></path></svg><!-- <span class="far fa-spinner-third fa-spin fa-2x"></span> -->
+                </div>
+                <div class="col">Загружаем варианты товара…</div>
+                </div>
+                </div>
+
+							<div class="js-product-variants-data product-variants-data">
+
+									<div class="product-sku">Артикул: <span class="js-product-sku" itemprop="sku">{{product.id}}</span></div>
+
+								<meta itemprop="image" content="https://static-eu.insales.ru/images/products/1/7847/180436647/xs-64-silver.jpg">
+								<div itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+									<meta itemprop="price" content="{{product.price}}">
+									<meta itemprop="priceCurrency" content="RUB">
+									<link itemprop="availability" href="http://schema.org/InStock">
+								</div>
+								<div class="product-prices">
+									<span class="product-price js-product-price">{{product.price | money}}</span>
+									{% if product.old_price %}<span class="product-old_price js-product-old_price">{{product.old_price | money}}</span>{%endif%}
+								</div>
+
+									<div class="product-rating">
+										<div class="rating">
+											<a href="#review_form" class="js-rating-link"><span class="rating-item rating-item--unactive"><svg class="svg-inline--fa fa-star fa-w-18" aria-hidden="true" data-prefix="far" data-icon="star" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" data-fa-i2svg><path fill="currentColor" d="M528.1 171.5L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6zM388.6 312.3l23.7 138.4L288 385.4l-124.3 65.3 23.7-138.4-100.6-98 139-20.2 62.2-126 62.2 126 139 20.2-100.6 98z"></path></svg><!-- <span class="far fa-star"></span> --></span><span class="rating-item rating-item--unactive"><svg class="svg-inline--fa fa-star fa-w-18" aria-hidden="true" data-prefix="far" data-icon="star" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" data-fa-i2svg><path fill="currentColor" d="M528.1 171.5L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6zM388.6 312.3l23.7 138.4L288 385.4l-124.3 65.3 23.7-138.4-100.6-98 139-20.2 62.2-126 62.2 126 139 20.2-100.6 98z"></path></svg><!-- <span class="far fa-star"></span> --></span><span class="rating-item rating-item--unactive"><svg class="svg-inline--fa fa-star fa-w-18" aria-hidden="true" data-prefix="far" data-icon="star" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" data-fa-i2svg><path fill="currentColor" d="M528.1 171.5L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6zM388.6 312.3l23.7 138.4L288 385.4l-124.3 65.3 23.7-138.4-100.6-98 139-20.2 62.2-126 62.2 126 139 20.2-100.6 98z"></path></svg><!-- <span class="far fa-star"></span> --></span><span class="rating-item rating-item--unactive"><svg class="svg-inline--fa fa-star fa-w-18" aria-hidden="true" data-prefix="far" data-icon="star" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" data-fa-i2svg><path fill="currentColor" d="M528.1 171.5L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6zM388.6 312.3l23.7 138.4L288 385.4l-124.3 65.3 23.7-138.4-100.6-98 139-20.2 62.2-126 62.2 126 139 20.2-100.6 98z"></path></svg><!-- <span class="far fa-star"></span> --></span><span class="rating-item rating-item--unactive"><svg class="svg-inline--fa fa-star fa-w-18" aria-hidden="true" data-prefix="far" data-icon="star" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" data-fa-i2svg><path fill="currentColor" d="M528.1 171.5L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6zM388.6 312.3l23.7 138.4L288 385.4l-124.3 65.3 23.7-138.4-100.6-98 139-20.2 62.2-126 62.2 126 139 20.2-100.6 98z"></path></svg><!-- <span class="far fa-star"></span> --></span><span class="rating-link"><svg class="svg-inline--fa fa-pencil fa-w-16" data-fa-transform="flip-h" aria-hidden="true" data-prefix="fas" data-icon="pencil" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg style="transform-origin: 0.5em 0.5em;"><g transform="translate(256 256)"><g transform="translate(0, 0)  scale(-1, 1)  rotate(0 0 0)"><path fill="currentColor" d="M497.9 142.1l-46.1 46.1c-4.7 4.7-12.3 4.7-17 0l-111-111c-4.7-4.7-4.7-12.3 0-17l46.1-46.1c18.7-18.7 49.1-18.7 67.9 0l60.1 60.1c18.8 18.7 18.8 49.1 0 67.9zM284.2 99.8L21.6 362.4.4 483.9c-2.9 16.4 11.4 30.6 27.8 27.8l121.5-21.3 262.6-262.6c4.7-4.7 4.7-12.3 0-17l-111-111c-4.8-4.7-12.4-4.7-17.1 0zM88 424h48v36.3l-64.5 11.3-31.1-31.1L51.7 376H88v48z" transform="translate(-256 -256)"></path></g></g></svg><!-- <span class="fas fa-pencil" data-fa-transform="flip-h"></span> -->Оставить отзыв</span></a>
+										</div>
+									</div>
+
+
+								<div class="product-form">
+
+                                  {% if product.show_variants? %}
+                                    <select name="variant_id" data-product-variants>
+                                      {% for variant in product.variants %}
+                                        <option value="{{ variant.id }}">{{ variant.title | escape }}</option>
+                                      {% endfor %}
+                                    </select>
+                                  {% else %}
+                                    <input type="hidden" name="variant_id" value="{{product.variants.first.id}}" >
+                                  {% endif %}
+
+									<div class="product-available {% if product.available %}{%else%}product-available--soldout{% endif %} js-product-available"></div>
+									<div class="product-buttons js-product-buttons">
+                  <div class="row">
+                    <div class="col col-auto">
+                      <div class="product-quantity">
+                        <div class="row no-gutters" data-quantity>
+                          <div class="col col-auto"><button type="button" data-quantity-change="-1" class="button button--counter button--icon button--large"><svg class="svg-inline--fa fa-minus fa-w-14" aria-hidden="true" data-prefix="fas" data-icon="minus" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg><path fill="currentColor" d="M424 318.2c13.3 0 24-10.7 24-24v-76.4c0-13.3-10.7-24-24-24H24c-13.3 0-24 10.7-24 24v76.4c0 13.3 10.7 24 24 24h400z"></path></svg><!-- <span class="fas fa-minus"></span> --></button></div>
+                          <div class="col"><input type="text" name="quantity" value="1" min="1" autocomplete="off" class="input input--counter input--large"></div>
+                          <div class="col col-auto"><button type="button" data-quantity-change="1" class="button button--counter button--icon button--large"><svg class="svg-inline--fa fa-plus fa-w-14" aria-hidden="true" data-prefix="fas" data-icon="plus" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg><path fill="currentColor" d="M448 294.2v-76.4c0-13.3-10.7-24-24-24H286.2V56c0-13.3-10.7-24-24-24h-76.4c-13.3 0-24 10.7-24 24v137.8H24c-13.3 0-24 10.7-24 24v76.4c0 13.3 10.7 24 24 24h137.8V456c0 13.3 10.7 24 24 24h76.4c13.3 0 24-10.7 24-24V318.2H424c13.3 0 24-10.7 24-24z"></path></svg><!-- <span class="fas fa-plus"></span> --></button></div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col">
+                      <div class="product-add">
+                        <button type="submit" class="button button--primary button--block button--large" data-item-add>В корзину</button>
+                      </div>
+                    </div>
+
+                      <div class="col-12">
+                        <div class="product-quick_checkout">
+                          <button type="button" class="button button--secondary button--block button--large" data-quick-checkout>Заказ в один клик</button>
+                        </div>
+                      </div>
+
+                  </div>
+										<div class="product-buttons-status product-buttons-status--soldout">
+											<svg class="svg-inline--fa fa-exclamation-triangle fa-w-18 fa-3x" aria-hidden="true" data-prefix="far" data-icon="exclamation-triangle" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" data-fa-i2svg><path fill="currentColor" d="M248.747 204.705l6.588 112c.373 6.343 5.626 11.295 11.979 11.295h41.37a12 12 0 0 0 11.979-11.295l6.588-112c.405-6.893-5.075-12.705-11.979-12.705h-54.547c-6.903 0-12.383 5.812-11.978 12.705zM330 384c0 23.196-18.804 42-42 42s-42-18.804-42-42 18.804-42 42-42 42 18.804 42 42zm-.423-360.015c-18.433-31.951-64.687-32.009-83.154 0L6.477 440.013C-11.945 471.946 11.118 512 48.054 512H527.94c36.865 0 60.035-39.993 41.577-71.987L329.577 23.985zM53.191 455.002L282.803 57.008c2.309-4.002 8.085-4.002 10.394 0l229.612 397.993c2.308 4-.579 8.998-5.197 8.998H58.388c-4.617.001-7.504-4.997-5.197-8.997z"></path></svg><!-- <span class="far fa-exclamation-triangle fa-3x"></span> -->
+											<span>Товар распродан</span>
+										</div>
+									</div>
+								</div>
+							</div>
+						</form>
+
+							<div class="product-extras">
+								<div class="row">
+
+
+
+
+                {% if account.bonus_system %}
+										<div class="col">
+											<div class="product-bonuses">
+												<button type="button" class="button button--empty button--info"><svg class="svg-inline--fa fa-piggy-bank fa-w-18 fa-lg" aria-hidden="true" data-prefix="far" data-icon="piggy-bank" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" data-fa-i2svg><path fill="currentColor" d="M560 224h-29.5c-11.1-25.3-28.7-46.9-50.5-63.4V96h-16c-30.3 0-57.8 10.1-81 26.2.4-3.4 1-6.7 1-10.2C384 50.1 333.9 0 272 0S160 50.1 160 112c0 9.7 1.5 19 3.8 27.9C114.9 159.8 78 203.1 67.2 256H56c-14.8 0-26.5-13.5-23.5-28.8C34.7 215.8 45.4 208 57 208h1c3.3 0 6-2.7 6-6v-20c0-3.3-2.7-6-6-6-28.5 0-53.9 20.4-57.5 48.6C-3.9 258.8 22.7 288 56 288h8c0 52.2 25.4 98.1 64 127.3V496c0 8.8 7.2 16 16 16h112c8.8 0 16-7.2 16-16v-48h64v48c0 8.8 7.2 16 16 16h112c8.8 0 16-7.2 16-16v-80.9c11.7-9 22.4-19.3 31.3-31.1H560c8.8 0 16-7.2 16-16V240c0-8.8-7.2-16-16-16zM272 48c35.3 0 64 28.7 64 64 0 5.6-.9 10.9-2.3 16H224c-4.5 0-8.8 1-13.3 1.3-1.6-5.5-2.7-11.3-2.7-17.3 0-35.3 28.7-64 64-64zm256 288h-40.6c-23.5 31.1-19.4 27.9-55.4 55.4V464h-48v-64H224v64h-48v-72.6c-14.6-11-64-39.8-64-103.4 0-61.8 50.2-112 112-112h167.4c9.5-7.6 22.2-19.3 40.6-26.2v34.7c45.4 34.4 44.2 35.2 67.1 87.5H528v64zm-96-80c-8.8 0-16 7.2-16 16s7.2 16 16 16 16-7.2 16-16-7.2-16-16-16z"></path></svg><!-- <span class="far fa-piggy-bank fa-lg"></span> --><span class="js-product-bonuses js-messages" data-target="bonuses" data-type="text">{{ account.bonus_system }} бонусов</span></button>
+											</div>
+										</div>
+                {% else %}
+                <!--no-bonuses-->
+                {% endif %}
+
+									<div class="col-auto">
+										<button type="button" class="button button--empty button--icon button--compares" data-compare-add="{{product.id}}"><svg class="svg-inline--fa fa-align-right fa-w-14 fa-lg" data-fa-transform="rotate-90" aria-hidden="true" data-prefix="far" data-icon="align-right" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg style="transform-origin: 0.4375em 0.5em;"><g transform="translate(224 256)"><g transform="translate(0, 0)  scale(1, 1)  rotate(90 0 0)"><path fill="currentColor" d="M160 80V48c0-6.627 5.373-12 12-12h264c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12H172c-6.627 0-12-5.373-12-12zM12 220h424c6.627 0 12-5.373 12-12v-32c0-6.627-5.373-12-12-12H12c-6.627 0-12 5.373-12 12v32c0 6.627 5.373 12 12 12zm0 256h424c6.627 0 12-5.373 12-12v-32c0-6.627-5.373-12-12-12H12c-6.627 0-12 5.373-12 12v32c0 6.627 5.373 12 12 12zm160-128h264c6.627 0 12-5.373 12-12v-32c0-6.627-5.373-12-12-12H172c-6.627 0-12 5.373-12 12v32c0 6.627 5.373 12 12 12z" transform="translate(-224 -256)"></path></g></g></svg><!-- <span class="far fa-align-right fa-lg" data-fa-transform="rotate-90"></span> --><span class="d-none d-sm-inline"></span></button><span class="button button--empty button--icon d-none d-sm-inline-block">&nbsp;</span><button type="button" class="button button--empty button--icon button--favorites not-added" data-favorites-trigger="{{product.id}}"><svg class="svg-inline--fa fa-heart fa-w-16 fa-lg" aria-hidden="true" data-prefix="far" data-icon="heart" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg><path fill="currentColor" d="M458.4 64.3C400.6 15.7 311.3 23 256 79.3 200.7 23 111.4 15.6 53.6 64.3-21.6 127.6-10.6 230.8 43 285.5l175.4 178.7c10 10.2 23.4 15.9 37.6 15.9 14.3 0 27.6-5.6 37.6-15.8L469 285.6c53.5-54.7 64.7-157.9-10.6-221.3zm-23.6 187.5L259.4 430.5c-2.4 2.4-4.4 2.4-6.8 0L77.2 251.8c-36.5-37.2-43.9-107.6 7.3-150.7 38.9-32.7 98.9-27.8 136.5 10.5l35 35.7 35-35.7c37.8-38.5 97.8-43.2 136.5-10.6 51.1 43.1 43.5 113.9 7.3 150.8z"></path></svg><!-- <span class="far fa-heart fa-lg"></span> --><span class="d-none d-sm-inline"></span></button>
+									</div>
+								</div>
+							</div>
+
+
+
+							<div class="product-description" itemprop="description">
+								{{product.description}}
+							</div>
+
+
+              {%if product.collections%}
+							       <div class="product-collections">Категории:
+                        {% for collection in product.collections %}
+                          <a href="{{collection.url}}">{{ collection.title }}</a>
+                        {% endfor %}
+                     </div>
+              {%endif%}
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div id="insales-section-tabs" class="insales-section insales-section-tabs">
+		<div class="container">
+			<div class="row">
+				<div class="col-12">
+					<div class="tabs">
+						<div class="row no-gutters justify-content-center tabs-list">
+								<div class="col-auto js-tabs-list-item tabs-list-item is-active" data-target="properties"><span class="far fa-sliders-h fa-lg"></span>ХАРАКТЕРИСТИКИ</div>
+								<div class="col-auto js-tabs-list-item tabs-list-item" data-target="reviews"><span class="far fa-comment fa-lg"></span>ОТЗЫВЫ <sup>0</sup></div>
+						</div>
+
+
+
+							<div class="js-tabs-content tabs-content is-active" data-tab="properties">
+								<div class="product-properties">
+
+
+
+                  {%for property in product.properties%}
+                    {%if property.handle == 'label'%}
+                    {%else%}
+										<dl class="row align-items-end product-properties-item">
+											<dt class="col-6 align-self-start {{property.handle}}"><span>{{property.name}}</span></dt>
+											<dd class="col-6">{% for characteristic in property.characteristics %}{{ characteristic.name }}{%if forloop.rindex > 1 %}, {%endif%}{% endfor%}</dd>
+										</dl>
+                    {%endif%}
+                  {%endfor%}
+
+
+
+
+								</div>
+							</div>
+
+
+
+							<div class="js-tabs-content tabs-content" data-tab="reviews">
+
+<div class="product_reviews">
+	<div class="row">
+		<div class="col-12 col-lg-7">
+
+				<div class="alert alert--default"><div class="row no-gutters align-items-center"><div class="col-auto"><svg class="svg-inline--fa fa-pencil fa-w-16 fa-2x" data-fa-transform="flip-h" aria-hidden="true" data-prefix="far" data-icon="pencil" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg style="transform-origin: 0.5em 0.5em;"><g transform="translate(256 256)"><g transform="translate(0, 0)  scale(-1, 1)  rotate(0 0 0)"><path fill="currentColor" d="M491.609 73.625l-53.861-53.839c-26.378-26.379-69.076-26.383-95.46-.001L24.91 335.089.329 484.085c-2.675 16.215 11.368 30.261 27.587 27.587l148.995-24.582 315.326-317.378c26.33-26.331 26.581-68.879-.628-96.087zM120.644 302l170.259-169.155 88.251 88.251L210 391.355V350h-48v-48h-41.356zM82.132 458.132l-28.263-28.263 12.14-73.587L84.409 338H126v48h48v41.59l-18.282 18.401-73.586 12.141zm378.985-319.533l-.051.051-.051.051-48.03 48.344-88.03-88.03 48.344-48.03.05-.05.05-.05c9.147-9.146 23.978-9.259 33.236-.001l53.854 53.854c9.878 9.877 9.939 24.549.628 33.861z" transform="translate(-256 -256)"></path></g></g></svg><!-- <span class="far fa-pencil fa-2x" data-fa-transform="flip-h"></span> --></div><div class="col">Здесь еще никто не оставлял отзывы. Вы можете быть первым!</div></div></div>
+
+		</div>
+		<div class="col-12 col-lg-5">
+			<form class="review-form" method="post" action="/collection/telefony/product/apple-iphone-xs-max/reviews#review_form">
+
+				<div class="form">
+
+
+
+
+
+
+
+						<div class="form-item">
+							<label>Ваша оценка</label>
+							<div class="review-rating js-rating">
+								<input type="hidden" name="review[rating]" value data-rating-input>
+
+										<span class="rating-item rating-item--star rating-item--unactive" data-rating-star data-rating-rate="1"><svg class="svg-inline--fa fa-star fa-w-18" aria-hidden="true" data-prefix="fas" data-icon="star" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" data-fa-i2svg><path fill="currentColor" d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"></path></svg><!-- <span class="fas fa-star"></span> --></span><span class="rating-item rating-item--star rating-item--unactive" data-rating-star data-rating-rate="2"><svg class="svg-inline--fa fa-star fa-w-18" aria-hidden="true" data-prefix="fas" data-icon="star" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" data-fa-i2svg><path fill="currentColor" d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"></path></svg><!-- <span class="fas fa-star"></span> --></span><span class="rating-item rating-item--star rating-item--unactive" data-rating-star data-rating-rate="3"><svg class="svg-inline--fa fa-star fa-w-18" aria-hidden="true" data-prefix="fas" data-icon="star" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" data-fa-i2svg><path fill="currentColor" d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"></path></svg><!-- <span class="fas fa-star"></span> --></span><span class="rating-item rating-item--star rating-item--unactive" data-rating-star data-rating-rate="4"><svg class="svg-inline--fa fa-star fa-w-18" aria-hidden="true" data-prefix="fas" data-icon="star" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" data-fa-i2svg><path fill="currentColor" d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"></path></svg><!-- <span class="fas fa-star"></span> --></span><span class="rating-item rating-item--star rating-item--unactive" data-rating-star data-rating-rate="5"><svg class="svg-inline--fa fa-star fa-w-18" aria-hidden="true" data-prefix="fas" data-icon="star" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" data-fa-i2svg><path fill="currentColor" d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"></path></svg><!-- <span class="fas fa-star"></span> --></span>
+
+								<span class="rating-item rating-item--reset" data-rating-reset><svg class="svg-inline--fa fa-times-circle fa-w-16" aria-hidden="true" data-prefix="far" data-icon="times-circle" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg><path fill="currentColor" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm0 448c-110.5 0-200-89.5-200-200S145.5 56 256 56s200 89.5 200 200-89.5 200-200 200zm101.8-262.2L295.6 256l62.2 62.2c4.7 4.7 4.7 12.3 0 17l-22.6 22.6c-4.7 4.7-12.3 4.7-17 0L256 295.6l-62.2 62.2c-4.7 4.7-12.3 4.7-17 0l-22.6-22.6c-4.7-4.7-4.7-12.3 0-17l62.2-62.2-62.2-62.2c-4.7-4.7-4.7-12.3 0-17l22.6-22.6c4.7-4.7 12.3-4.7 17 0l62.2 62.2 62.2-62.2c4.7-4.7 12.3-4.7 17 0l22.6 22.6c4.7 4.7 4.7 12.3 0 17z"></path></svg><!-- <span class="far fa-times-circle"></span> --></span>
+							</div>
+						</div>
+
+					<div class="form-item">
+						<label for="review-author">Представьтесь, пожалуйста <span class="required">*</span></label>
+						<input type="text" id="review-author" name="review[author]" value class="input input--medium input--block" required>
+					</div>
+					<div class="form-item">
+						<label for="review-email">Электронная почта <span class="required">*</span></label>
+						<input type="email" id="review-email" name="review[email]" value class="input input--medium input--block" required>
+					</div>
+					<div class="form-item">
+						<label for="review-content">Ваш отзыв <span class="required">*</span></label>
+						<textarea id="review-content" name="review[content]" cols="32" rows="4" class="input input--medium input--block" required></textarea>
+					</div>
+
+
+					<div class="form-item form-item-submit">
+						<div class="row">
+							<div class="col-auto">
+								<button type="submit" class="button button--secondary">Отправить</button>
+							</div>
+							<div class="col">
+								<div class="form-item-privacy"><p>Нажимая на кнопку «Отправить» вы принимаете условия <a rel="noopener noreferrer" href="/page/oferta" target="_blank">Публичной оферты</a>.</p></div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+</form>
+		</div>
+	</div>
+</div>
+							</div>
+
+
+
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</div>
+<div id="insales-section-products--similar_products" class="insales-section insales-section-products insales-section-products--similar_products">
+			<div class="products">
+				<div class="container">
+
+						<div class="section-title products-title">Аналогичные товары</div>
+						<div class="js-owl-carousel-products-slider products-slider owl-carousel owl-products-slider owl-loaded owl-drag">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+						<div class="owl-stage-outer"><div class="owl-stage" style="transform: translate3d(0px, 0px, 0px); transition: all 0s ease 0s; width: 1425px;"><div class="owl-item active" style="width: 265px; margin-right: 20px;"><div class="products-slider-item"><div class="product_card product_card--shadow">
+	<form action="{{ cart_url }}" method="post" data-product-id="{{ product.id }}">
+      <input type="hidden" name="variant_id" value="123123123123123" >
+
+
+
+		<input type="hidden" name="quantity" value="1">
+		<a href="/collection/telefony/product/samsung-apple" class="product_card-thumb product_card-thumb--1x1 product_card-thumb--contain">
+			<span class="product_card-thumb-item" style="background-image: url(https://static-eu.insales.ru/images/products/1/4729/163213945/large_appung.jpg);"></span>
+
+			<span class="product_card-labels">
+
+		<span class="product_card-label product_card-label--bundle">Комплект</span>
+
+
+
+
+
+			<span class="product_card-label product_card-label--sale">Скидка 8%</span>
+
+
+
+</span>
+		</a>
+		<div class="product_card-title">
+			<a href="/collection/telefony/product/samsung-apple">Красный Apple iPhone 8 и золотистый Samsung Galaxy A6</a>
+		</div>
+
+			<div class="product_card-rating">
+				<div class="rating">
+					<a href="/collection/telefony/product/samsung-apple#review_form"><span class="rating-item rating-item--unactive"><svg class="svg-inline--fa fa-star fa-w-18" aria-hidden="true" data-prefix="far" data-icon="star" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" data-fa-i2svg><path fill="currentColor" d="M528.1 171.5L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6zM388.6 312.3l23.7 138.4L288 385.4l-124.3 65.3 23.7-138.4-100.6-98 139-20.2 62.2-126 62.2 126 139 20.2-100.6 98z"></path></svg><!-- <span class="far fa-star"></span> --></span><span class="rating-item rating-item--unactive"><svg class="svg-inline--fa fa-star fa-w-18" aria-hidden="true" data-prefix="far" data-icon="star" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" data-fa-i2svg><path fill="currentColor" d="M528.1 171.5L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6zM388.6 312.3l23.7 138.4L288 385.4l-124.3 65.3 23.7-138.4-100.6-98 139-20.2 62.2-126 62.2 126 139 20.2-100.6 98z"></path></svg><!-- <span class="far fa-star"></span> --></span><span class="rating-item rating-item--unactive"><svg class="svg-inline--fa fa-star fa-w-18" aria-hidden="true" data-prefix="far" data-icon="star" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" data-fa-i2svg><path fill="currentColor" d="M528.1 171.5L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6zM388.6 312.3l23.7 138.4L288 385.4l-124.3 65.3 23.7-138.4-100.6-98 139-20.2 62.2-126 62.2 126 139 20.2-100.6 98z"></path></svg><!-- <span class="far fa-star"></span> --></span><span class="rating-item rating-item--unactive"><svg class="svg-inline--fa fa-star fa-w-18" aria-hidden="true" data-prefix="far" data-icon="star" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" data-fa-i2svg><path fill="currentColor" d="M528.1 171.5L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6zM388.6 312.3l23.7 138.4L288 385.4l-124.3 65.3 23.7-138.4-100.6-98 139-20.2 62.2-126 62.2 126 139 20.2-100.6 98z"></path></svg><!-- <span class="far fa-star"></span> --></span><span class="rating-item rating-item--unactive"><svg class="svg-inline--fa fa-star fa-w-18" aria-hidden="true" data-prefix="far" data-icon="star" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" data-fa-i2svg><path fill="currentColor" d="M528.1 171.5L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6zM388.6 312.3l23.7 138.4L288 385.4l-124.3 65.3 23.7-138.4-100.6-98 139-20.2 62.2-126 62.2 126 139 20.2-100.6 98z"></path></svg><!-- <span class="far fa-star"></span> --></span><span class="rating-link"><svg class="svg-inline--fa fa-comment fa-w-16" aria-hidden="true" data-prefix="fas" data-icon="comment" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg><path fill="currentColor" d="M256 32C114.6 32 0 125.1 0 240c0 49.6 21.4 95 57 130.7C44.5 421.1 2.7 466 2.2 466.5c-2.2 2.3-2.8 5.7-1.5 8.7S4.8 480 8 480c66.3 0 116-31.8 140.6-51.4 32.7 12.3 69 19.4 107.4 19.4 141.4 0 256-93.1 256-208S397.4 32 256 32z"></path></svg><!-- <span class="fas fa-comment"></span> -->0</span></a>
+				</div>
+			</div>
+
+		<div class="product_card-prices">
+
+
+				<span class="product_card-price product_card-price--sale">68 990 ₽</span>
+				<span class="product_card-old_price">74 980 ₽</span>
+
+		</div>
+		<div class="product_card-add">
+			<div class="row no-gutters">
+				<div class="col">
+
+
+							<button type="submit" class="button button--icon button--small button--empty button--empty--inverse" data-item-add><svg class="svg-inline--fa fa-shopping-cart fa-w-18 fa-lg" aria-hidden="true" data-prefix="far" data-icon="shopping-cart" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" data-fa-i2svg><path fill="currentColor" d="M551.991 64H144.28l-8.726-44.608C133.35 8.128 123.478 0 112 0H12C5.373 0 0 5.373 0 12v24c0 6.627 5.373 12 12 12h80.24l69.594 355.701C150.796 415.201 144 430.802 144 448c0 35.346 28.654 64 64 64s64-28.654 64-64a63.681 63.681 0 0 0-8.583-32h145.167a63.681 63.681 0 0 0-8.583 32c0 35.346 28.654 64 64 64 35.346 0 64-28.654 64-64 0-18.136-7.556-34.496-19.676-46.142l1.035-4.757c3.254-14.96-8.142-29.101-23.452-29.101H203.76l-9.39-48h312.405c11.29 0 21.054-7.869 23.452-18.902l45.216-208C578.695 78.139 567.299 64 551.991 64zM208 472c-13.234 0-24-10.766-24-24s10.766-24 24-24 24 10.766 24 24-10.766 24-24 24zm256 0c-13.234 0-24-10.766-24-24s10.766-24 24-24 24 10.766 24 24-10.766 24-24 24zm23.438-200H184.98l-31.31-160h368.548l-34.78 160z"></path></svg><!-- <span class="far fa-shopping-cart fa-lg"></span> --><span>В корзину</span></button>
+
+
+				</div>
+
+					<div class="col col-auto">
+						<button type="button" class="button button--empty button--small button--icon button--compares" data-compare-add="109626232"><svg class="svg-inline--fa fa-align-right fa-w-14 fa-lg" data-fa-transform="rotate-90" aria-hidden="true" data-prefix="far" data-icon="align-right" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg style="transform-origin: 0.4375em 0.5em;"><g transform="translate(224 256)"><g transform="translate(0, 0)  scale(1, 1)  rotate(90 0 0)"><path fill="currentColor" d="M160 80V48c0-6.627 5.373-12 12-12h264c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12H172c-6.627 0-12-5.373-12-12zM12 220h424c6.627 0 12-5.373 12-12v-32c0-6.627-5.373-12-12-12H12c-6.627 0-12 5.373-12 12v32c0 6.627 5.373 12 12 12zm0 256h424c6.627 0 12-5.373 12-12v-32c0-6.627-5.373-12-12-12H12c-6.627 0-12 5.373-12 12v32c0 6.627 5.373 12 12 12zm160-128h264c6.627 0 12-5.373 12-12v-32c0-6.627-5.373-12-12-12H172c-6.627 0-12 5.373-12 12v32c0 6.627 5.373 12 12 12z" transform="translate(-224 -256)"></path></g></g></svg><!-- <span class="far fa-align-right fa-lg" data-fa-transform="rotate-90"></span> --></button><button type="button" class="button button--empty button--small button--icon button--favorites not-added" data-favorites-trigger="109626232"><svg class="svg-inline--fa fa-heart fa-w-16 fa-lg" aria-hidden="true" data-prefix="far" data-icon="heart" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg><path fill="currentColor" d="M458.4 64.3C400.6 15.7 311.3 23 256 79.3 200.7 23 111.4 15.6 53.6 64.3-21.6 127.6-10.6 230.8 43 285.5l175.4 178.7c10 10.2 23.4 15.9 37.6 15.9 14.3 0 27.6-5.6 37.6-15.8L469 285.6c53.5-54.7 64.7-157.9-10.6-221.3zm-23.6 187.5L259.4 430.5c-2.4 2.4-4.4 2.4-6.8 0L77.2 251.8c-36.5-37.2-43.9-107.6 7.3-150.7 38.9-32.7 98.9-27.8 136.5 10.5l35 35.7 35-35.7c37.8-38.5 97.8-43.2 136.5-10.6 51.1 43.1 43.5 113.9 7.3 150.8z"></path></svg><!-- <span class="far fa-heart fa-lg"></span> --></button>
+					</div>
+
+			</div>
+		</div>
+	</form>
+</div></div></div><div class="owl-item active" style="width: 265px; margin-right: 20px;"><div class="products-slider-item"><div class="product_card product_card--shadow">
+	<form action="/cart_items" method="post" data-product-id="{{product.id}}">
+		<input type="hidden" name="variant_id" value="187816444">
+		<input type="hidden" name="quantity" value="1">
+		<a href="/collection/telefony/product/apple-samsung" class="product_card-thumb product_card-thumb--1x1 product_card-thumb--contain">
+			<span class="product_card-thumb-item" style="background-image: url(https://static-eu.insales.ru/images/products/1/4738/163156610/large_appung.jpg);"></span>
+
+			<span class="product_card-labels">
+
+		<span class="product_card-label product_card-label--bundle">Комплект</span>
+
+
+
+
+
+			<span class="product_card-label product_card-label--sale">Скидка 22%</span>
+
+
+
+</span>
+		</a>
+		<div class="product_card-title">
+			<a href="/collection/telefony/product/apple-samsung">Apple + Samsung = ❤️</a>
+		</div>
+
+			<div class="product_card-rating">
+				<div class="rating">
+					<a href="/collection/telefony/product/apple-samsung#review_form"><span class="rating-item rating-item--unactive"><svg class="svg-inline--fa fa-star fa-w-18" aria-hidden="true" data-prefix="far" data-icon="star" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" data-fa-i2svg><path fill="currentColor" d="M528.1 171.5L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6zM388.6 312.3l23.7 138.4L288 385.4l-124.3 65.3 23.7-138.4-100.6-98 139-20.2 62.2-126 62.2 126 139 20.2-100.6 98z"></path></svg><!-- <span class="far fa-star"></span> --></span><span class="rating-item rating-item--unactive"><svg class="svg-inline--fa fa-star fa-w-18" aria-hidden="true" data-prefix="far" data-icon="star" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" data-fa-i2svg><path fill="currentColor" d="M528.1 171.5L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6zM388.6 312.3l23.7 138.4L288 385.4l-124.3 65.3 23.7-138.4-100.6-98 139-20.2 62.2-126 62.2 126 139 20.2-100.6 98z"></path></svg><!-- <span class="far fa-star"></span> --></span><span class="rating-item rating-item--unactive"><svg class="svg-inline--fa fa-star fa-w-18" aria-hidden="true" data-prefix="far" data-icon="star" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" data-fa-i2svg><path fill="currentColor" d="M528.1 171.5L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6zM388.6 312.3l23.7 138.4L288 385.4l-124.3 65.3 23.7-138.4-100.6-98 139-20.2 62.2-126 62.2 126 139 20.2-100.6 98z"></path></svg><!-- <span class="far fa-star"></span> --></span><span class="rating-item rating-item--unactive"><svg class="svg-inline--fa fa-star fa-w-18" aria-hidden="true" data-prefix="far" data-icon="star" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" data-fa-i2svg><path fill="currentColor" d="M528.1 171.5L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6zM388.6 312.3l23.7 138.4L288 385.4l-124.3 65.3 23.7-138.4-100.6-98 139-20.2 62.2-126 62.2 126 139 20.2-100.6 98z"></path></svg><!-- <span class="far fa-star"></span> --></span><span class="rating-item rating-item--unactive"><svg class="svg-inline--fa fa-star fa-w-18" aria-hidden="true" data-prefix="far" data-icon="star" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" data-fa-i2svg><path fill="currentColor" d="M528.1 171.5L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6zM388.6 312.3l23.7 138.4L288 385.4l-124.3 65.3 23.7-138.4-100.6-98 139-20.2 62.2-126 62.2 126 139 20.2-100.6 98z"></path></svg><!-- <span class="far fa-star"></span> --></span><span class="rating-link"><svg class="svg-inline--fa fa-comment fa-w-16" aria-hidden="true" data-prefix="fas" data-icon="comment" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg><path fill="currentColor" d="M256 32C114.6 32 0 125.1 0 240c0 49.6 21.4 95 57 130.7C44.5 421.1 2.7 466 2.2 466.5c-2.2 2.3-2.8 5.7-1.5 8.7S4.8 480 8 480c66.3 0 116-31.8 140.6-51.4 32.7 12.3 69 19.4 107.4 19.4 141.4 0 256-93.1 256-208S397.4 32 256 32z"></path></svg><!-- <span class="fas fa-comment"></span> -->0</span></a>
+				</div>
+			</div>
+
+		<div class="product_card-prices">
+
+
+				<span class="product_card-price product_card-price--sale">69 990 ₽</span>
+				<span class="product_card-old_price">89 990 ₽</span>
+
+		</div>
+		<div class="product_card-add">
+			<div class="row no-gutters">
+				<div class="col">
+
+
+							<button type="submit" class="button button--icon button--small button--empty button--empty--inverse" data-item-add><svg class="svg-inline--fa fa-shopping-cart fa-w-18 fa-lg" aria-hidden="true" data-prefix="far" data-icon="shopping-cart" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" data-fa-i2svg><path fill="currentColor" d="M551.991 64H144.28l-8.726-44.608C133.35 8.128 123.478 0 112 0H12C5.373 0 0 5.373 0 12v24c0 6.627 5.373 12 12 12h80.24l69.594 355.701C150.796 415.201 144 430.802 144 448c0 35.346 28.654 64 64 64s64-28.654 64-64a63.681 63.681 0 0 0-8.583-32h145.167a63.681 63.681 0 0 0-8.583 32c0 35.346 28.654 64 64 64 35.346 0 64-28.654 64-64 0-18.136-7.556-34.496-19.676-46.142l1.035-4.757c3.254-14.96-8.142-29.101-23.452-29.101H203.76l-9.39-48h312.405c11.29 0 21.054-7.869 23.452-18.902l45.216-208C578.695 78.139 567.299 64 551.991 64zM208 472c-13.234 0-24-10.766-24-24s10.766-24 24-24 24 10.766 24 24-10.766 24-24 24zm256 0c-13.234 0-24-10.766-24-24s10.766-24 24-24 24 10.766 24 24-10.766 24-24 24zm23.438-200H184.98l-31.31-160h368.548l-34.78 160z"></path></svg><!-- <span class="far fa-shopping-cart fa-lg"></span> --><span>В корзину</span></button>
+
+
+				</div>
+
+					<div class="col col-auto">
+						<button type="button" class="button button--empty button--small button--icon button--compares" data-compare-add="109599975"><svg class="svg-inline--fa fa-align-right fa-w-14 fa-lg" data-fa-transform="rotate-90" aria-hidden="true" data-prefix="far" data-icon="align-right" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg style="transform-origin: 0.4375em 0.5em;"><g transform="translate(224 256)"><g transform="translate(0, 0)  scale(1, 1)  rotate(90 0 0)"><path fill="currentColor" d="M160 80V48c0-6.627 5.373-12 12-12h264c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12H172c-6.627 0-12-5.373-12-12zM12 220h424c6.627 0 12-5.373 12-12v-32c0-6.627-5.373-12-12-12H12c-6.627 0-12 5.373-12 12v32c0 6.627 5.373 12 12 12zm0 256h424c6.627 0 12-5.373 12-12v-32c0-6.627-5.373-12-12-12H12c-6.627 0-12 5.373-12 12v32c0 6.627 5.373 12 12 12zm160-128h264c6.627 0 12-5.373 12-12v-32c0-6.627-5.373-12-12-12H172c-6.627 0-12 5.373-12 12v32c0 6.627 5.373 12 12 12z" transform="translate(-224 -256)"></path></g></g></svg><!-- <span class="far fa-align-right fa-lg" data-fa-transform="rotate-90"></span> --></button><button type="button" class="button button--empty button--small button--icon button--favorites not-added" data-favorites-trigger="109599975"><svg class="svg-inline--fa fa-heart fa-w-16 fa-lg" aria-hidden="true" data-prefix="far" data-icon="heart" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg><path fill="currentColor" d="M458.4 64.3C400.6 15.7 311.3 23 256 79.3 200.7 23 111.4 15.6 53.6 64.3-21.6 127.6-10.6 230.8 43 285.5l175.4 178.7c10 10.2 23.4 15.9 37.6 15.9 14.3 0 27.6-5.6 37.6-15.8L469 285.6c53.5-54.7 64.7-157.9-10.6-221.3zm-23.6 187.5L259.4 430.5c-2.4 2.4-4.4 2.4-6.8 0L77.2 251.8c-36.5-37.2-43.9-107.6 7.3-150.7 38.9-32.7 98.9-27.8 136.5 10.5l35 35.7 35-35.7c37.8-38.5 97.8-43.2 136.5-10.6 51.1 43.1 43.5 113.9 7.3 150.8z"></path></svg><!-- <span class="far fa-heart fa-lg"></span> --></button>
+					</div>
+
+			</div>
+		</div>
+	</form>
+</div></div></div><div class="owl-item active" style="width: 265px; margin-right: 20px;"><div class="products-slider-item"><div class="product_card product_card--shadow">
+	<form action="/cart_items" method="post" data-product-id="{{product.id}}">
+		<input type="hidden" name="variant_id" value="184641752">
+		<input type="hidden" name="quantity" value="1">
+		<a href="/collection/telefony/product/samsung-galaxy-a6-2018" class="product_card-thumb product_card-thumb--1x1 product_card-thumb--contain">
+			<span class="product_card-thumb-item product_card-thumb-item--first" style="background-image: url(https://static-eu.insales.ru/images/products/1/4792/160010936/large_4103681-1.jpg);"></span>
+			<span class="product_card-thumb-item product_card-thumb-item--second" style="background-image: url(https://static-eu.insales.ru/images/products/1/4793/160010937/large_4103681-2.jpg);"></span>
+			<span class="product_card-labels">
+
+
+
+
+</span>
+		</a>
+		<div class="product_card-title">
+			<a href="/collection/telefony/product/samsung-galaxy-a6-2018">Samsung Galaxy A6 (2018)</a>
+		</div>
+
+			<div class="product_card-rating">
+				<div class="rating">
+					<a href="/collection/telefony/product/samsung-galaxy-a6-2018#comments"><span class="rating-item rating-item--active"><svg class="svg-inline--fa fa-star fa-w-18" aria-hidden="true" data-prefix="fas" data-icon="star" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" data-fa-i2svg><path fill="currentColor" d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"></path></svg><!-- <span class="fas fa-star"></span> --></span><span class="rating-item rating-item--active"><svg class="svg-inline--fa fa-star fa-w-18" aria-hidden="true" data-prefix="fas" data-icon="star" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" data-fa-i2svg><path fill="currentColor" d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"></path></svg><!-- <span class="fas fa-star"></span> --></span><span class="rating-item rating-item--active"><svg class="svg-inline--fa fa-star fa-w-18" aria-hidden="true" data-prefix="fas" data-icon="star" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" data-fa-i2svg><path fill="currentColor" d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"></path></svg><!-- <span class="fas fa-star"></span> --></span><span class="rating-item rating-item--unactive"><svg class="svg-inline--fa fa-star fa-w-18" aria-hidden="true" data-prefix="far" data-icon="star" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" data-fa-i2svg><path fill="currentColor" d="M528.1 171.5L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6zM388.6 312.3l23.7 138.4L288 385.4l-124.3 65.3 23.7-138.4-100.6-98 139-20.2 62.2-126 62.2 126 139 20.2-100.6 98z"></path></svg><!-- <span class="far fa-star"></span> --></span><span class="rating-item rating-item--unactive"><svg class="svg-inline--fa fa-star fa-w-18" aria-hidden="true" data-prefix="far" data-icon="star" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" data-fa-i2svg><path fill="currentColor" d="M528.1 171.5L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6zM388.6 312.3l23.7 138.4L288 385.4l-124.3 65.3 23.7-138.4-100.6-98 139-20.2 62.2-126 62.2 126 139 20.2-100.6 98z"></path></svg><!-- <span class="far fa-star"></span> --></span><span class="rating-link"><svg class="svg-inline--fa fa-comment fa-w-16" aria-hidden="true" data-prefix="fas" data-icon="comment" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg><path fill="currentColor" d="M256 32C114.6 32 0 125.1 0 240c0 49.6 21.4 95 57 130.7C44.5 421.1 2.7 466 2.2 466.5c-2.2 2.3-2.8 5.7-1.5 8.7S4.8 480 8 480c66.3 0 116-31.8 140.6-51.4 32.7 12.3 69 19.4 107.4 19.4 141.4 0 256-93.1 256-208S397.4 32 256 32z"></path></svg><!-- <span class="fas fa-comment"></span> -->5</span></a>
+				</div>
+			</div>
+
+		<div class="product_card-prices">
+
+
+				<span class="product_card-price">22 990 ₽</span>
+
+
+		</div>
+		<div class="product_card-add">
+			<div class="row no-gutters">
+				<div class="col">
+
+
+							<a href="/collection/telefony/product/samsung-galaxy-a6-2018" class="button button--icon button--small button--empty button--empty--inverse"><svg class="svg-inline--fa fa-shopping-cart fa-w-18 fa-lg" aria-hidden="true" data-prefix="far" data-icon="shopping-cart" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" data-fa-i2svg><path fill="currentColor" d="M551.991 64H144.28l-8.726-44.608C133.35 8.128 123.478 0 112 0H12C5.373 0 0 5.373 0 12v24c0 6.627 5.373 12 12 12h80.24l69.594 355.701C150.796 415.201 144 430.802 144 448c0 35.346 28.654 64 64 64s64-28.654 64-64a63.681 63.681 0 0 0-8.583-32h145.167a63.681 63.681 0 0 0-8.583 32c0 35.346 28.654 64 64 64 35.346 0 64-28.654 64-64 0-18.136-7.556-34.496-19.676-46.142l1.035-4.757c3.254-14.96-8.142-29.101-23.452-29.101H203.76l-9.39-48h312.405c11.29 0 21.054-7.869 23.452-18.902l45.216-208C578.695 78.139 567.299 64 551.991 64zM208 472c-13.234 0-24-10.766-24-24s10.766-24 24-24 24 10.766 24 24-10.766 24-24 24zm256 0c-13.234 0-24-10.766-24-24s10.766-24 24-24 24 10.766 24 24-10.766 24-24 24zm23.438-200H184.98l-31.31-160h368.548l-34.78 160z"></path></svg><!-- <span class="far fa-shopping-cart fa-lg"></span> --><span>Выбрать</span></a>
+
+
+				</div>
+
+					<div class="col col-auto">
+						<button type="button" class="button button--empty button--small button--icon button--compares" data-compare-add="107677123"><svg class="svg-inline--fa fa-align-right fa-w-14 fa-lg" data-fa-transform="rotate-90" aria-hidden="true" data-prefix="far" data-icon="align-right" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg style="transform-origin: 0.4375em 0.5em;"><g transform="translate(224 256)"><g transform="translate(0, 0)  scale(1, 1)  rotate(90 0 0)"><path fill="currentColor" d="M160 80V48c0-6.627 5.373-12 12-12h264c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12H172c-6.627 0-12-5.373-12-12zM12 220h424c6.627 0 12-5.373 12-12v-32c0-6.627-5.373-12-12-12H12c-6.627 0-12 5.373-12 12v32c0 6.627 5.373 12 12 12zm0 256h424c6.627 0 12-5.373 12-12v-32c0-6.627-5.373-12-12-12H12c-6.627 0-12 5.373-12 12v32c0 6.627 5.373 12 12 12zm160-128h264c6.627 0 12-5.373 12-12v-32c0-6.627-5.373-12-12-12H172c-6.627 0-12 5.373-12 12v32c0 6.627 5.373 12 12 12z" transform="translate(-224 -256)"></path></g></g></svg><!-- <span class="far fa-align-right fa-lg" data-fa-transform="rotate-90"></span> --></button><button type="button" class="button button--empty button--small button--icon button--favorites not-added" data-favorites-trigger="107677123"><svg class="svg-inline--fa fa-heart fa-w-16 fa-lg" aria-hidden="true" data-prefix="far" data-icon="heart" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg><path fill="currentColor" d="M458.4 64.3C400.6 15.7 311.3 23 256 79.3 200.7 23 111.4 15.6 53.6 64.3-21.6 127.6-10.6 230.8 43 285.5l175.4 178.7c10 10.2 23.4 15.9 37.6 15.9 14.3 0 27.6-5.6 37.6-15.8L469 285.6c53.5-54.7 64.7-157.9-10.6-221.3zm-23.6 187.5L259.4 430.5c-2.4 2.4-4.4 2.4-6.8 0L77.2 251.8c-36.5-37.2-43.9-107.6 7.3-150.7 38.9-32.7 98.9-27.8 136.5 10.5l35 35.7 35-35.7c37.8-38.5 97.8-43.2 136.5-10.6 51.1 43.1 43.5 113.9 7.3 150.8z"></path></svg><!-- <span class="far fa-heart fa-lg"></span> --></button>
+					</div>
+
+			</div>
+		</div>
+	</form>
+</div></div></div><div class="owl-item active" style="width: 265px; margin-right: 20px;"><div class="products-slider-item"><div class="product_card product_card--shadow">
+	<form action="/cart_items" method="post" data-product-id="{{product.id}}">
+		<input type="hidden" name="variant_id" value="184241102">
+		<input type="hidden" name="quantity" value="1">
+		<a href="/collection/telefony/product/apple-iphone-8-productred-special-edition-64gb" class="product_card-thumb product_card-thumb--1x1 product_card-thumb--contain">
+			<span class="product_card-thumb-item product_card-thumb-item--first" style="background-image: url(https://static-eu.insales.ru/images/products/1/4027/159625147/large_4078001-3.jpg);"></span>
+			<span class="product_card-thumb-item product_card-thumb-item--second" style="background-image: url(https://static-eu.insales.ru/images/products/1/4028/159625148/large_4078001-4.jpg);"></span>
+			<span class="product_card-labels">
+
+
+
+
+
+			<span class="product_card-label product_card-label--sale">Скидка 4%</span>
+
+
+
+</span>
+		</a>
+		<div class="product_card-title">
+			<a href="/collection/telefony/product/apple-iphone-8-productred-special-edition-64gb">Apple iPhone 8 (PRODUCT)RED™ Special Edition 64GB</a>
+		</div>
+
+			<div class="product_card-rating">
+				<div class="rating">
+					<a href="/collection/telefony/product/apple-iphone-8-productred-special-edition-64gb#comments"><span class="rating-item rating-item--active"><svg class="svg-inline--fa fa-star fa-w-18" aria-hidden="true" data-prefix="fas" data-icon="star" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" data-fa-i2svg><path fill="currentColor" d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"></path></svg><!-- <span class="fas fa-star"></span> --></span><span class="rating-item rating-item--active"><svg class="svg-inline--fa fa-star fa-w-18" aria-hidden="true" data-prefix="fas" data-icon="star" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" data-fa-i2svg><path fill="currentColor" d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"></path></svg><!-- <span class="fas fa-star"></span> --></span><span class="rating-item rating-item--active"><svg class="svg-inline--fa fa-star fa-w-18" aria-hidden="true" data-prefix="fas" data-icon="star" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" data-fa-i2svg><path fill="currentColor" d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"></path></svg><!-- <span class="fas fa-star"></span> --></span><span class="rating-item rating-item--active"><svg class="svg-inline--fa fa-star fa-w-18" aria-hidden="true" data-prefix="fas" data-icon="star" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" data-fa-i2svg><path fill="currentColor" d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"></path></svg><!-- <span class="fas fa-star"></span> --></span><span class="rating-item rating-item--unactive"><svg class="svg-inline--fa fa-star fa-w-18" aria-hidden="true" data-prefix="far" data-icon="star" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" data-fa-i2svg><path fill="currentColor" d="M528.1 171.5L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6zM388.6 312.3l23.7 138.4L288 385.4l-124.3 65.3 23.7-138.4-100.6-98 139-20.2 62.2-126 62.2 126 139 20.2-100.6 98z"></path></svg><!-- <span class="far fa-star"></span> --></span><span class="rating-link"><svg class="svg-inline--fa fa-comment fa-w-16" aria-hidden="true" data-prefix="fas" data-icon="comment" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg><path fill="currentColor" d="M256 32C114.6 32 0 125.1 0 240c0 49.6 21.4 95 57 130.7C44.5 421.1 2.7 466 2.2 466.5c-2.2 2.3-2.8 5.7-1.5 8.7S4.8 480 8 480c66.3 0 116-31.8 140.6-51.4 32.7 12.3 69 19.4 107.4 19.4 141.4 0 256-93.1 256-208S397.4 32 256 32z"></path></svg><!-- <span class="fas fa-comment"></span> -->4</span></a>
+				</div>
+			</div>
+
+		<div class="product_card-prices">
+
+
+				<span class="product_card-price product_card-price--sale">51 990 ₽</span>
+				<span class="product_card-old_price">53 990 ₽</span>
+
+		</div>
+		<div class="product_card-add">
+			<div class="row no-gutters">
+				<div class="col">
+
+
+							<button type="submit" class="button button--icon button--small button--empty button--empty--inverse" data-item-add><svg class="svg-inline--fa fa-shopping-cart fa-w-18 fa-lg" aria-hidden="true" data-prefix="far" data-icon="shopping-cart" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" data-fa-i2svg><path fill="currentColor" d="M551.991 64H144.28l-8.726-44.608C133.35 8.128 123.478 0 112 0H12C5.373 0 0 5.373 0 12v24c0 6.627 5.373 12 12 12h80.24l69.594 355.701C150.796 415.201 144 430.802 144 448c0 35.346 28.654 64 64 64s64-28.654 64-64a63.681 63.681 0 0 0-8.583-32h145.167a63.681 63.681 0 0 0-8.583 32c0 35.346 28.654 64 64 64 35.346 0 64-28.654 64-64 0-18.136-7.556-34.496-19.676-46.142l1.035-4.757c3.254-14.96-8.142-29.101-23.452-29.101H203.76l-9.39-48h312.405c11.29 0 21.054-7.869 23.452-18.902l45.216-208C578.695 78.139 567.299 64 551.991 64zM208 472c-13.234 0-24-10.766-24-24s10.766-24 24-24 24 10.766 24 24-10.766 24-24 24zm256 0c-13.234 0-24-10.766-24-24s10.766-24 24-24 24 10.766 24 24-10.766 24-24 24zm23.438-200H184.98l-31.31-160h368.548l-34.78 160z"></path></svg><!-- <span class="far fa-shopping-cart fa-lg"></span> --><span>В корзину</span></button>
+
+
+				</div>
+
+					<div class="col col-auto">
+						<button type="button" class="button button--empty button--small button--icon button--compares" data-compare-add="107422905"><svg class="svg-inline--fa fa-align-right fa-w-14 fa-lg" data-fa-transform="rotate-90" aria-hidden="true" data-prefix="far" data-icon="align-right" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg style="transform-origin: 0.4375em 0.5em;"><g transform="translate(224 256)"><g transform="translate(0, 0)  scale(1, 1)  rotate(90 0 0)"><path fill="currentColor" d="M160 80V48c0-6.627 5.373-12 12-12h264c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12H172c-6.627 0-12-5.373-12-12zM12 220h424c6.627 0 12-5.373 12-12v-32c0-6.627-5.373-12-12-12H12c-6.627 0-12 5.373-12 12v32c0 6.627 5.373 12 12 12zm0 256h424c6.627 0 12-5.373 12-12v-32c0-6.627-5.373-12-12-12H12c-6.627 0-12 5.373-12 12v32c0 6.627 5.373 12 12 12zm160-128h264c6.627 0 12-5.373 12-12v-32c0-6.627-5.373-12-12-12H172c-6.627 0-12 5.373-12 12v32c0 6.627 5.373 12 12 12z" transform="translate(-224 -256)"></path></g></g></svg><!-- <span class="far fa-align-right fa-lg" data-fa-transform="rotate-90"></span> --></button><button type="button" class="button button--empty button--small button--icon button--favorites not-added" data-favorites-trigger="107422905"><svg class="svg-inline--fa fa-heart fa-w-16 fa-lg" aria-hidden="true" data-prefix="far" data-icon="heart" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg><path fill="currentColor" d="M458.4 64.3C400.6 15.7 311.3 23 256 79.3 200.7 23 111.4 15.6 53.6 64.3-21.6 127.6-10.6 230.8 43 285.5l175.4 178.7c10 10.2 23.4 15.9 37.6 15.9 14.3 0 27.6-5.6 37.6-15.8L469 285.6c53.5-54.7 64.7-157.9-10.6-221.3zm-23.6 187.5L259.4 430.5c-2.4 2.4-4.4 2.4-6.8 0L77.2 251.8c-36.5-37.2-43.9-107.6 7.3-150.7 38.9-32.7 98.9-27.8 136.5 10.5l35 35.7 35-35.7c37.8-38.5 97.8-43.2 136.5-10.6 51.1 43.1 43.5 113.9 7.3 150.8z"></path></svg><!-- <span class="far fa-heart fa-lg"></span> --></button>
+					</div>
+
+			</div>
+		</div>
+	</form>
+</div></div></div><div class="owl-item" style="width: 265px; margin-right: 20px;"><div class="products-slider-item"><div class="product_card product_card--shadow">
+	<form action="/cart_items" method="post" data-product-id="{{product.id}}">
+		<input type="hidden" name="variant_id" value="202043225">
+		<input type="hidden" name="quantity" value="1">
+		<a href="/collection/telefony/product/samsung-n960-galaxy-note-9-128gb" class="product_card-thumb product_card-thumb--1x1 product_card-thumb--contain">
+			<span class="product_card-thumb-item product_card-thumb-item--first" style="background-image: url(https://static-eu.insales.ru/images/products/1/3054/180440046/large_samsung-n960.jpg);"></span>
+			<span class="product_card-thumb-item product_card-thumb-item--second" style="background-image: url(https://static-eu.insales.ru/images/products/1/3055/180440047/large_samsung-n960-2.jpg);"></span>
+			<span class="product_card-labels">
+
+
+
+
+</span>
+		</a>
+		<div class="product_card-title">
+			<a href="/collection/telefony/product/samsung-n960-galaxy-note-9-128gb">Samsung N960 Galaxy Note 9 128GB</a>
+		</div>
+
+			<div class="product_card-rating">
+				<div class="rating">
+					<a href="/collection/telefony/product/samsung-n960-galaxy-note-9-128gb#review_form"><span class="rating-item rating-item--unactive"><svg class="svg-inline--fa fa-star fa-w-18" aria-hidden="true" data-prefix="far" data-icon="star" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" data-fa-i2svg><path fill="currentColor" d="M528.1 171.5L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6zM388.6 312.3l23.7 138.4L288 385.4l-124.3 65.3 23.7-138.4-100.6-98 139-20.2 62.2-126 62.2 126 139 20.2-100.6 98z"></path></svg><!-- <span class="far fa-star"></span> --></span><span class="rating-item rating-item--unactive"><svg class="svg-inline--fa fa-star fa-w-18" aria-hidden="true" data-prefix="far" data-icon="star" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" data-fa-i2svg><path fill="currentColor" d="M528.1 171.5L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6zM388.6 312.3l23.7 138.4L288 385.4l-124.3 65.3 23.7-138.4-100.6-98 139-20.2 62.2-126 62.2 126 139 20.2-100.6 98z"></path></svg><!-- <span class="far fa-star"></span> --></span><span class="rating-item rating-item--unactive"><svg class="svg-inline--fa fa-star fa-w-18" aria-hidden="true" data-prefix="far" data-icon="star" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" data-fa-i2svg><path fill="currentColor" d="M528.1 171.5L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6zM388.6 312.3l23.7 138.4L288 385.4l-124.3 65.3 23.7-138.4-100.6-98 139-20.2 62.2-126 62.2 126 139 20.2-100.6 98z"></path></svg><!-- <span class="far fa-star"></span> --></span><span class="rating-item rating-item--unactive"><svg class="svg-inline--fa fa-star fa-w-18" aria-hidden="true" data-prefix="far" data-icon="star" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" data-fa-i2svg><path fill="currentColor" d="M528.1 171.5L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6zM388.6 312.3l23.7 138.4L288 385.4l-124.3 65.3 23.7-138.4-100.6-98 139-20.2 62.2-126 62.2 126 139 20.2-100.6 98z"></path></svg><!-- <span class="far fa-star"></span> --></span><span class="rating-item rating-item--unactive"><svg class="svg-inline--fa fa-star fa-w-18" aria-hidden="true" data-prefix="far" data-icon="star" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" data-fa-i2svg><path fill="currentColor" d="M528.1 171.5L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6zM388.6 312.3l23.7 138.4L288 385.4l-124.3 65.3 23.7-138.4-100.6-98 139-20.2 62.2-126 62.2 126 139 20.2-100.6 98z"></path></svg><!-- <span class="far fa-star"></span> --></span><span class="rating-link"><svg class="svg-inline--fa fa-comment fa-w-16" aria-hidden="true" data-prefix="fas" data-icon="comment" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg><path fill="currentColor" d="M256 32C114.6 32 0 125.1 0 240c0 49.6 21.4 95 57 130.7C44.5 421.1 2.7 466 2.2 466.5c-2.2 2.3-2.8 5.7-1.5 8.7S4.8 480 8 480c66.3 0 116-31.8 140.6-51.4 32.7 12.3 69 19.4 107.4 19.4 141.4 0 256-93.1 256-208S397.4 32 256 32z"></path></svg><!-- <span class="fas fa-comment"></span> -->0</span></a>
+				</div>
+			</div>
+
+		<div class="product_card-prices">
+
+
+				<span class="product_card-price">69 990 ₽</span>
+
+
+		</div>
+		<div class="product_card-add">
+			<div class="row no-gutters">
+				<div class="col">
+
+
+							<a href="/collection/telefony/product/samsung-n960-galaxy-note-9-128gb" class="button button--icon button--small button--empty button--empty--inverse"><svg class="svg-inline--fa fa-shopping-cart fa-w-18 fa-lg" aria-hidden="true" data-prefix="far" data-icon="shopping-cart" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" data-fa-i2svg><path fill="currentColor" d="M551.991 64H144.28l-8.726-44.608C133.35 8.128 123.478 0 112 0H12C5.373 0 0 5.373 0 12v24c0 6.627 5.373 12 12 12h80.24l69.594 355.701C150.796 415.201 144 430.802 144 448c0 35.346 28.654 64 64 64s64-28.654 64-64a63.681 63.681 0 0 0-8.583-32h145.167a63.681 63.681 0 0 0-8.583 32c0 35.346 28.654 64 64 64 35.346 0 64-28.654 64-64 0-18.136-7.556-34.496-19.676-46.142l1.035-4.757c3.254-14.96-8.142-29.101-23.452-29.101H203.76l-9.39-48h312.405c11.29 0 21.054-7.869 23.452-18.902l45.216-208C578.695 78.139 567.299 64 551.991 64zM208 472c-13.234 0-24-10.766-24-24s10.766-24 24-24 24 10.766 24 24-10.766 24-24 24zm256 0c-13.234 0-24-10.766-24-24s10.766-24 24-24 24 10.766 24 24-10.766 24-24 24zm23.438-200H184.98l-31.31-160h368.548l-34.78 160z"></path></svg><!-- <span class="far fa-shopping-cart fa-lg"></span> --><span>Выбрать</span></a>
+
+
+				</div>
+
+					<div class="col col-auto">
+						<button type="button" class="button button--empty button--small button--icon button--compares" data-compare-add="118481689"><svg class="svg-inline--fa fa-align-right fa-w-14 fa-lg" data-fa-transform="rotate-90" aria-hidden="true" data-prefix="far" data-icon="align-right" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg style="transform-origin: 0.4375em 0.5em;"><g transform="translate(224 256)"><g transform="translate(0, 0)  scale(1, 1)  rotate(90 0 0)"><path fill="currentColor" d="M160 80V48c0-6.627 5.373-12 12-12h264c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12H172c-6.627 0-12-5.373-12-12zM12 220h424c6.627 0 12-5.373 12-12v-32c0-6.627-5.373-12-12-12H12c-6.627 0-12 5.373-12 12v32c0 6.627 5.373 12 12 12zm0 256h424c6.627 0 12-5.373 12-12v-32c0-6.627-5.373-12-12-12H12c-6.627 0-12 5.373-12 12v32c0 6.627 5.373 12 12 12zm160-128h264c6.627 0 12-5.373 12-12v-32c0-6.627-5.373-12-12-12H172c-6.627 0-12 5.373-12 12v32c0 6.627 5.373 12 12 12z" transform="translate(-224 -256)"></path></g></g></svg><!-- <span class="far fa-align-right fa-lg" data-fa-transform="rotate-90"></span> --></button><button type="button" class="button button--empty button--small button--icon button--favorites not-added" data-favorites-trigger="118481689"><svg class="svg-inline--fa fa-heart fa-w-16 fa-lg" aria-hidden="true" data-prefix="far" data-icon="heart" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg><path fill="currentColor" d="M458.4 64.3C400.6 15.7 311.3 23 256 79.3 200.7 23 111.4 15.6 53.6 64.3-21.6 127.6-10.6 230.8 43 285.5l175.4 178.7c10 10.2 23.4 15.9 37.6 15.9 14.3 0 27.6-5.6 37.6-15.8L469 285.6c53.5-54.7 64.7-157.9-10.6-221.3zm-23.6 187.5L259.4 430.5c-2.4 2.4-4.4 2.4-6.8 0L77.2 251.8c-36.5-37.2-43.9-107.6 7.3-150.7 38.9-32.7 98.9-27.8 136.5 10.5l35 35.7 35-35.7c37.8-38.5 97.8-43.2 136.5-10.6 51.1 43.1 43.5 113.9 7.3 150.8z"></path></svg><!-- <span class="far fa-heart fa-lg"></span> --></button>
+					</div>
+
+			</div>
+		</div>
+	</form>
+</div></div></div></div></div><div class="owl-nav"><button type="button" role="presentation" class="owl-prev disabled"><svg class="svg-inline--fa fa-chevron-left fa-w-8 fa-lg" aria-hidden="true" data-prefix="far" data-icon="chevron-left" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512" data-fa-i2svg><path fill="currentColor" d="M231.293 473.899l19.799-19.799c4.686-4.686 4.686-12.284 0-16.971L70.393 256 251.092 74.87c4.686-4.686 4.686-12.284 0-16.971L231.293 38.1c-4.686-4.686-12.284-4.686-16.971 0L4.908 247.515c-4.686 4.686-4.686 12.284 0 16.971L214.322 473.9c4.687 4.686 12.285 4.686 16.971-.001z"></path></svg><!-- <i class="far fa-chevron-left fa-lg"></i> --></button><button type="button" role="presentation" class="owl-next"><svg class="svg-inline--fa fa-chevron-right fa-w-8 fa-lg" aria-hidden="true" data-prefix="far" data-icon="chevron-right" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512" data-fa-i2svg><path fill="currentColor" d="M24.707 38.101L4.908 57.899c-4.686 4.686-4.686 12.284 0 16.971L185.607 256 4.908 437.13c-4.686 4.686-4.686 12.284 0 16.971L24.707 473.9c4.686 4.686 12.284 4.686 16.971 0l209.414-209.414c4.686-4.686 4.686-12.284 0-16.971L41.678 38.101c-4.687-4.687-12.285-4.687-16.971 0z"></path></svg><!-- <i class="far fa-chevron-right fa-lg"></i> --></button></div><div class="owl-dots disabled"></div></div>
+
+				</div>
+			</div>
+		</div>

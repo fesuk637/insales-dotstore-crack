@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html class='palette_1' lang='ru' xml:lang='ru' xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+  {% include "system_head" %}
+  <meta content='text/html; charset=UTF-8' http-equiv='Content-Type'>
+  <meta content='noindex, nofollow' name='robots'>
+  <meta content='width=device-width, initial-scale=1.0, user-scalable=no' name='viewport'>
+
+  <link  href='https://fonts.googleapis.com/css?family=Ubuntu:400,300,500,700&amp;subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+
+  {{ 'checkout2.core' | global_stylesheet_tag }}
+  {% include "styles" %}
+
+</head>
+<body class="adaptive">
+  <div id="app"
+  checkbox-hide-native
+  radio-hide-native
+  icon-theme="fontawesome"
+  >
+  <div class='wrapper-cloak' v-cloak >
+
+    {% for widgetDrop in widget_lists.common_header-list.widgets %}
+      {% widget widgetDrop %}
+    {% endfor %}
+
+    <ui-layout-part
+      class="content-wrapper"
+      type="body"
+    >
+
+    <div class='checkout-v2-wrapper co-section--checkout_content'>
+      <div class='co-section--checkout_order co-section--checkout_order_sided'>
+
+        <div class='co-section--checkout_header co-checkout-block--padded'>
+          <div class="decorated-title-wrapper co-checkout-title">
+            <h1 class='decorated-title co-title co-title--h1'>
+            {% yield 'title' %}
+            </h1>
+          </div>
+
+        </div>
+        {% yield 'sidebar' %}
+        {% yield %}
+      </div>
+    </div>
+
+</ui-layout-part>
+
+{% for widgetDrop in widget_lists.common_footer-list.widgets %}
+  {% widget widgetDrop %}
+{% endfor %}
+</div>
+</div>
+</body>
+  <script src="{{ 'theme.js' | asset_url }}" charset="utf-8"></script>
+
+</html>

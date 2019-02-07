@@ -1,0 +1,9 @@
+{% if page.url contains 'feedback' %}
+  {% for widgetDrop in widget_lists.common_feedback-list.widgets %}
+    {% widget widgetDrop %}
+  {% endfor %}
+{% else %}
+  {% for widgetDrop in page.widget_list.widgets %}
+    {% widget widgetDrop %}
+  {% endfor %}
+{% endif %}

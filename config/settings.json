@@ -1,0 +1,380 @@
+{
+   "{{ messages.s_heading_colors_and_fonts }}":[
+      {
+         "group_name":"{{ messages.s_subheading_primary_colors }}",
+         "items":[
+            {
+               "name":"palette_1__color-background",
+               "label":"{{ messages.s_color_background }}",
+               "value":"#ffffff",
+               "help":"",
+               "type":"color"
+            },
+            {
+               "name":"palette_1__color-background-sub",
+               "label":"{{ messages.s_color_background-sub }}",
+               "value":"#ffffff",
+               "help":"",
+               "type":"color"
+            },
+            {
+               "name":"palette_1__color-text",
+               "label":"{{ messages.s_color_text }}",
+               "value":"#ffffff",
+               "help":"",
+               "type":"color"
+            },
+            {
+               "name":"palette_1__color-link",
+               "label":"{{ messages.s_color_active_elements }}",
+               "value":"#ffffff",
+               "help":"",
+               "type":"color"
+            },
+            {
+               "name":"palette_1__color-border",
+               "label":"{{ messages.s_color_border }}",
+               "value":"#ffffff",
+               "help":"",
+               "type":"color"
+            }
+         ]
+      },
+      {
+         "group_name":"{{ messages.s_subheading_adjective_colors }}",
+         "items":[
+            {
+               "name":"palette_2__color-background",
+               "label":"{{ messages.s_color_background }}",
+               "value":"#ffffff",
+               "help":"",
+               "type":"color"
+            },
+            {
+               "name":"palette_2__color-background-sub",
+               "label":"{{ messages.s_color_background-sub }}",
+               "value":"#ffffff",
+               "help":"",
+               "type":"color"
+            },
+            {
+               "name":"palette_2__color-text",
+               "label":"{{ messages.s_color_text }}",
+               "value":"#ffffff",
+               "help":"",
+               "type":"color"
+            },
+            {
+               "name":"palette_2__color-link",
+               "label":"{{ messages.s_color_active_elements }}",
+               "value":"#ffffff",
+               "help":"",
+               "type":"color"
+            },
+            {
+               "name":"palette_2__color-border",
+               "label":"{{ messages.s_color_border }}",
+               "value":"#ffffff",
+               "help":"",
+               "type":"color"
+            }
+         ]
+      },
+      {
+         "group_name":"{{ messages.s_subheading_custom_colors }}",
+         "items":[
+            {
+               "name":"palette_3__color-background",
+               "label":"{{ messages.s_color_background }}",
+               "value":"#ffffff",
+               "help":"",
+               "type":"color"
+            },
+            {
+               "name":"palette_3__color-background-sub",
+               "label":"{{ messages.s_color_background-sub }}",
+               "value":"#ffffff",
+               "help":"",
+               "type":"color"
+            },
+            {
+               "name":"palette_3__color-text",
+               "label":"{{ messages.s_color_text }}",
+               "value":"#ffffff",
+               "help":"",
+               "type":"color"
+            },
+            {
+               "name":"palette_3__color-link",
+               "label":"{{ messages.s_color_active_elements }}",
+               "value":"#ffffff",
+               "help":"",
+               "type":"color"
+            },
+            {
+               "name":"palette_3__color-border",
+               "label":"{{ messages.s_color_border }}",
+               "value":"#ffffff",
+               "help":"",
+               "type":"color"
+            }
+         ]
+      },
+      {
+         "group_name":"{{ messages.s_subheading_background_substrate }}",
+         "items":[
+            {
+               "name":"root__body_background_color",
+               "label":"{{ messages.s_body_background_color }}",
+               "value":"#ffffff",
+               "help":"",
+               "type":"color"
+            },
+            {
+               "name":"body_background_use",
+               "type":"checkbox",
+               "label":"{{ messages.s_body_background_use }}",
+               "value":null,
+               "help":""
+            },
+            {
+               "name":"body_background_type",
+               "options":[
+                  [
+                     "{{ messages.default }}",
+                     "default"
+                  ],
+                  [
+                     "{{ messages.tile }}",
+                     "tile"
+                  ],
+                  [
+                     "{{ messages.stretch }}",
+                     "stretch"
+                  ]
+               ],
+               "value":null,
+               "label":"{{ messages.s_body_background_type }}",
+               "type":"select"
+            },
+            {
+               "name":"body_background_image.jpg",
+               "type":"file",
+               "label":"{{ messages.s_body_background_image }}",
+               "value":null,
+               "help":""
+            },
+            {
+               "name":"background_container_use",
+               "type":"checkbox",
+               "label":"{{ messages.background_container_use }}",
+               "value":null,
+               "help":""
+            },
+            {
+               "name":"root__background_container",
+               "label":"{{ messages.background_container }}",
+               "value":"#ffffff",
+               "help":"",
+               "type":"color"
+            }
+         ]
+      }
+   ],
+   "{{ messages.s_subheading_fonts }}":[
+     {
+        "group_name":"{{ messages.s_subheading_fonts }}",
+        "items":[
+           {
+              "name":"font_family_primary",
+              "options":[
+                 [
+                    "Istok Web",
+                    "google:Istok+Web"
+                 ],
+                 [
+                    "OpenSans",
+                    "google:Open+Sans"
+                 ],
+                 [
+                    "Roboto",
+                    "google:Roboto"
+                 ],
+                 [
+                    "Ubuntu",
+                    "google:Ubuntu"
+                 ]
+              ],
+              "value":null,
+              "label":"{{ messages.s_font_family_primary }}",
+              "type":"select"
+           },
+           {
+              "name":"font_size_primary",
+              "options":[
+                 [
+                    "12 px",
+                    "12px"
+                 ],
+                 [
+                    "14 px",
+                    "14px"
+                 ]
+              ],
+              "value":null,
+              "label":"{{ messages.s_font_size_primary }}",
+              "type":"select"
+           }
+        ]
+     }
+   ],
+   "{{ messages.s_heading_logotype }}":[
+      {
+         "group_name":"{{ messages.s_heading_logotype }}",
+         "items":[
+            {
+               "name":"logotype_type",
+               "options":[
+                  [
+                     "{{ messages.image }}",
+                     "image"
+                  ],
+                  [
+                     "{{ messages.site_name }}",
+                     "text"
+                  ]
+               ],
+               "value":null,
+               "label":"{{ messages.s_logotype_type }}",
+               "type":"select"
+            },
+            {
+               "name":"logotype.jpg",
+               "type":"file",
+               "label":"{{ messages.s_logotype_image }}",
+               "value":null,
+               "help":""
+            },
+            {
+               "name":"logotype_font_family",
+               "options":[
+                  [
+                     "Cuprum",
+                     "google:Cuprum"
+                  ],
+                  [
+                     "OpenSans",
+                     "google:Open+Sans"
+                  ],
+                  [
+                     "Roboto",
+                     "google:Roboto"
+                  ],
+                  [
+                     "Ubuntu",
+                     "google:Ubuntu"
+                  ]
+               ],
+               "value":null,
+               "label":"{{ messages.s_logotype_font_family }}",
+               "type":"select"
+            },
+            {
+               "name":"logotype_font_size",
+               "options":[
+                  [
+                     "20 px",
+                     "20px"
+                  ],
+                  [
+                     "25 px",
+                     "25px"
+                  ],
+                  [
+                     "30 px",
+                     "30px"
+                  ],
+                  [
+                     "35 px",
+                     "35px"
+                  ],
+                  [
+                     "40 px",
+                     "40px"
+                  ]
+               ],
+               "value":null,
+               "label":"{{ messages.s_logotype_font_size }}",
+               "type":"select"
+            }
+         ]
+      },
+      {
+         "group_name":"{{ messages.s_subheading_favicon }}",
+         "items":[
+            {
+               "name":"favicon.png",
+               "type":"file",
+               "label":"{{ messages.s_favicon }}",
+               "value":null,
+               "help":""
+            }
+         ]
+      }
+   ],
+   "{{ messages.product_page }}" : [
+     {
+         "group_name":"{{ messages.s_subheading_buy_button }}",
+         "items":[
+            {
+              "name":"product_not_available",
+               "options":[
+                  [
+                     "{{ messages.show }}",
+                     "shown"
+                  ],
+                  [
+                     "{{ messages.preorder }}",
+                     "preorder"
+                  ],
+                  [
+                     "{{ messages.hide }}",
+                     "hidden"
+                  ]
+               ],
+               "value":null,
+               "label":"{{ messages.s_product_not_available }}",
+               "type":"select"
+            }
+         ]
+     },{
+         "group_name":"{{ messages.collection_sort_size }}",
+         "items":[
+            {
+              "name":"collection_size",
+               "options":[
+                  [
+                     "12",
+                     "12"
+                  ],
+                  [
+                     "24",
+                     "24"
+                  ],
+                  [
+                     "48",
+                     "48"
+                  ],
+                  [
+                     "96",
+                     "96"
+                  ]
+               ],
+               "value":null,
+               "label":"{{ messages.sort_default }}",
+               "type":"select"
+            }
+         ]
+     }
+   ]
+}

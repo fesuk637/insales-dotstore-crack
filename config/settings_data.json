@@ -1,0 +1,39 @@
+{
+  "common_js_version": "v2",
+  "current": "custom",
+  "presets": {
+    "custom": {
+      "palette_1__color-background": "#ffffff",
+      "palette_1__color-background-sub": "#c01f3c",
+      "palette_1__color-text": "#434343",
+      "palette_1__color-link": "#c01f3c",
+      "palette_1__color-border": "#eeeeee",
+      "palette_2__color-background": "#ffffff",
+      "palette_2__color-background-sub": "#eeeeee",
+      "palette_2__color-text": "#434343",
+      "palette_2__color-link": "#c01f3c",
+      "palette_2__color-border": "#e5e5e5",
+      "palette_3__color-background": "#eeeeee",
+      "palette_3__color-background-sub": "#c01f3c",
+      "palette_3__color-text": "#434343",
+      "palette_3__color-link": "#434343",
+      "palette_3__color-border": "#eeeeee",
+      "root__body_background_color": "#ffffff",
+      "body_background_type": "stretch",
+      "background_container_use": "1",
+      "root__background_container": "#ffffff",
+      "font_family_primary": "google:Ubuntu",
+      "font_size_primary": "14px",
+      "logotype_type": "text",
+      "logotype_font_family": "google:Ubuntu",
+      "logotype_font_size": "40px",
+      "product_not_available": "preorder",
+      "collection_size": "12",
+      "_settings_version": 1548863230.6286848
+    }
+  },
+  "remote_theme_id": 418,
+  "source_account_id": null,
+  "theme_title": "Прайм",
+  "vue_ui_version": "v1"
+}

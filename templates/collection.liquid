@@ -1,0 +1,11 @@
+{% assign filter_active = false %}
+{% assign display_filter = false %}
+{% assign hide_class = display_filter | default: "hidden" | replace: 'true','' %}
+
+{% paginate products by settings.collection_size %}
+
+  {% for widgetDrop in widget_lists.common_collection-list.widgets %}
+    {% widget widgetDrop %}
+  {% endfor %}
+
+{% endpaginate %}

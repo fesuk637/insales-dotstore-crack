@@ -1,0 +1,7 @@
+{% paginate search.results by 12 %}
+
+{% for widgetDrop in widget_lists.common_search-list.widgets %}
+  {% widget widgetDrop %}
+{% endfor %}
+
+{% endpaginate %}

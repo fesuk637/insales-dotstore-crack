@@ -1,0 +1,6 @@
+{% paginate articles by 7 %}
+
+{% for widgetDrop in widget_lists.common_blog-list.widgets %}
+  {% widget widgetDrop %}
+{% endfor %}
+{% endpaginate %}

@@ -1,0 +1,72 @@
+// Theme settings
+
+// Фоновая подложка
+$body_background_color: settings(root__body_background_color);
+$body-background-use: settings(body_background_use);
+$body-background-image: settings(body_background_image);
+$body-background-type: settings(body_background_type);
+
+$background_container_use: settings(background_container_use);
+$background_container: settings(root__background_container);
+
+// Шрифты
+$font-family-primary: get-font(settings(font_family_primary));
+$font-size-primary: settings(font_size_primary);
+
+// Настройка логотипа
+$logotype-font-family: get-font(settings(logotype_font_family));
+$logotype-font-size: settings(logotype_font_size);
+
+// Различные настройки по-умолчанию
+$link-decoration: none;
+
+// font-size
+$font-size-medium: 1.25rem;
+$font-size-large: 1.5rem;
+
+// Headings
+
+// H1 — 24px
+// H2 — 20px
+// H3 — 16px
+$vertical-gutter: 0.5rem;
+$horizontal-gutter: 0.5rem;
+$block-gutter: 0.25rem;
+$font-size-promo: 2.5rem;
+$font-size-h1: 2rem;
+$font-size-h2: 1.66rem;
+$font-size-h3: 1.33rem;
+$font-size-h4: 1.18rem;
+$font-size-text: 1rem;
+$font-size-small: 0.83rem;
+$font-weight-heading: bold;
+
+// compass
+$default-transition-duration: 0.7s;
+$default-transition-duration-out: 0s;
+
+//border-radius
+$border-radius: 2px;
+
+//opcity-text
+$opacity-text: .8;
+
+:root {
+  --body_background_color: $body_background_color;
+  --background_container: $background_container;
+  --font-size-logo: $logotype-font-size;
+  --font-size-promo: $font-size-promo;
+  --font-size-h1: $font-size-h1;
+  --font-size-h2: $font-size-h2;
+  --font-size-h3: $font-size-h3;
+  --font-size-h4: $font-size-h4;
+  --font-size-text: $font-size-text;
+  --font-size-small: $font-size-small;
+  --default-transition-duration: $default-transition-duration;
+  --default-transition-duration-out: $default-transition-duration-out;
+
+  --button-size-s: .5rem 1rem;
+  --button-size-m: 1rem 2.5rem;
+  --button-size-l: 1.5rem 3.5rem;
+  --button-size-x: 2rem 4.5rem;
+}

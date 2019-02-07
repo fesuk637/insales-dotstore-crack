@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,700&subset=cyrillic');
+.top-line {
+ height: 45px !important;
+ padding: 10px 0;
+ text-align: center;
+ background-color: #f7f8fa;
+}
+.top-line * {
+display: inline-block;
+height: 100%;
+max-width: 100%;
+margin: 0;
+padding: 0;
+vertical-align: top;
+}
+@media (min-width: 576px){
+  .top-line > div {
+      max-width: 540px;
+  }
+}
+@media (min-width: 768px) {
+  .top-line > div {
+      max-width: 720px;
+  }
+}
+@media (min-width: 1025px) {
+  .top-line > div {
+      max-width: 960px;
+  }
+}
+@media (min-width: 1200px) {
+  .top-line > div {
+      max-width: 1140px;
+  }
+}
+.top-line svg {
+height: 14px;
+color: #0bb648;
+margin-right: 5px;
+vertical-align: middle;
+
+}
+.top-line img {
+  height: 20px;
+}
+.top-line a {
+  color: #999;
+}
+.top-line a:hover {
+  color: #000;
+}
+.contacts-item + .contacts-item {
+    margin-left: 20px;
+}
+.contacts.contacts--header {
+  padding: 0 10px;
+}
+.messengers-item {
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0px 10px;
+}
+.social-networks img {
+  max-height: 16px;
+  vertical-align: middle;
+}
+body {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  line-height: 22px;
+}
+a, button, .button, .input {
+  transition: color 0.2s linear, background-color 0.2s linear, border-color 0.2s linear;
+}

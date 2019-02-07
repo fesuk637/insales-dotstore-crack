@@ -1,0 +1,872 @@
+{
+  "collections": {
+    "frontpage": "{{ messages.collection_frontpage }}",
+    "popular": "{{ messages.collection_popular }}"
+  },
+  "menus": {
+    "main-menu": "{{ messages.main_menu }}",
+    "footer-menu": "{{ messages.footer_menu }}"
+  },
+  "menu_items": {
+    "main-menu": {
+      "{{ messages.page_delivery }}": "/page/delivery",
+      "{{ messages.page_payment }}": "/page/payment",
+      "{{ messages.page_contacts }}": "/page/feedback"
+    },
+    "footer-menu": {
+      "{{ messages.page_delivery }}": "/page/delivery",
+      "{{ messages.page_payment }}": "/page/payment",
+      "{{ messages.page_contacts }}": "/page/feedback"
+    }
+  },
+
+  "properties": {
+    "label": {
+      "title": "{{ messages.option_label }}",
+      "characteristics": {
+        "new": "{{ messages.option_label_new }}",
+        "sale": "{{ messages.option_label_sale }}"
+      }
+    }
+  },
+  "pages": {
+    "delivery": "{{ messages.page_delivery }}",
+    "payment": "{{ messages.page_payment }}",
+    "feedback": "{{ messages.page_feedback }}"
+
+  },
+  "blogs":
+    {
+    "blog": {
+      "title": "{{ messages.blog_title }}",
+      "articles":{
+        "article3": {
+          "preview": "{{ messages.article_content_3 }}",
+          "content": "{{ messages.article_content_3 }}",
+          "author": "{{ messages.article_author }}",
+          "title": "{{ messages.article_title_3 }}"
+        },
+        "article2": {
+          "preview": "{{ messages.article_content_2 }}",
+          "content": "{{ messages.article_content_2 }}",
+          "author": "{{ messages.article_author }}",
+          "title": "{{ messages.article_title_2 }}"
+        },
+        "article1": {
+          "preview": "{{ messages.article_content_1 }}",
+          "content": "{{ messages.article_content_1 }}",
+          "author": "{{ messages.article_author }}",
+          "title": "{{ messages.article_title_1 }}"
+        }
+      }
+    }
+  },
+  "block_lists": {
+    "benefits": {
+      "block_template": "system-benefit-2",
+      "title": "{{ messages.block_list_benefits }}",
+      "blocks": ["benefit-1", "benefit-2", "benefit-3","benefit-4"]
+    },
+    "banner-list": {
+      "block_template": "system-banner",
+      "title": "{{ messages.block_list_banner }}",
+      "blocks": ["banner-1", "banner-2", "banner-3","banner-4","banner-5","banner-6"]
+    },
+    "promo-slider": {
+      "block_template": "system-promo-slider-2",
+      "title": "{{ messages.block_list_slider }}",
+      "blocks": ["slide-1","slide-2","slide-3"]
+    },
+    "contacts": {
+      "title": "{{ messages.block_list_contacts }}",
+      "blocks": ["phone","email"]
+    },
+    "special-categories": {
+      "block_template": "system-collection",
+      "title": "{{ messages.snippet_title_categories }}"
+    },
+    "special-products": {
+      "block_template": "system-special_products",
+      "title": "{{ messages.snippet_title_collections }}",
+      "blocks": ["products-1", "products-2"]
+    },
+    "feedback-form": {
+      "title": "{{ messages.block_list_feedback }}",
+      "block_template": "system-widget-feedback",
+      "blocks": ["feedback-form-1"]
+    },
+    "image-text": {
+      "block_template": "system-image-and-content",
+      "title": "{{ messages.snippet_image_text }}",
+      "blocks": ["image-text-1"]
+    },
+    "reviews": {
+      "block_template": "system-review-2",
+      "title": "{{ messages.snippet_reviews }}",
+      "blocks": ["review-1", "review-2", "review-3"]
+    },
+    "sidebar-blocks": {
+      "block_template": "system-title-and-content",
+      "title": "{{ messages.panel_sidebar }}",
+      "blocks": ["market-place","paymenttitle","social_caption","worktime","cart_discount"]
+    },
+    "payment": {
+      "block_template": "system-payments-social",
+      "title": "{{ messages.block_list_paymenst }}",
+      "blocks": ["visa", "mastercard", "qiwi", "yandex", "webmoney", "maestro","vkontakte", "facebook", "instagram", "google", "youtube", "twitter"]
+    }
+  },
+  "blocks": {
+    "banner-1": {
+      "block_template": "system-banner",
+      "title": "{{ messages.block_banner }}",
+      "name": "{{ messages.block_banner }}",
+      "image": "banner-1.png",
+      "link": "",
+      "ratio": "3"
+    },
+    "banner-2": {
+      "block_template": "system-banner",
+      "title": "{{ messages.block_banner }}",
+      "name": "{{ messages.block_banner }}",
+      "image": "banner-2.png",
+      "link": "",
+      "ratio": "6"
+    },
+    "banner-3": {
+      "block_template": "system-banner",
+      "title": "{{ messages.block_banner }}",
+      "name": "{{ messages.block_banner }}",
+      "image": "banner-3.png",
+      "link": "",
+      "ratio": "3"
+    },
+    "banner-4": {
+      "block_template": "system-banner",
+      "title": "{{ messages.block_banner }}",
+      "name": "{{ messages.block_banner }}",
+      "image": "banner-4.png",
+      "link": "",
+      "ratio": "3"
+    },
+    "banner-5": {
+      "block_template": "system-banner",
+      "title": "{{ messages.block_banner }}",
+      "name": "{{ messages.block_banner }}",
+      "image": "banner-5.png",
+      "link": "",
+      "ratio": "3"
+    },
+    "banner-6": {
+      "block_template": "system-banner",
+      "title": "{{ messages.block_banner }}",
+      "name": "{{ messages.block_banner }}",
+      "image": "banner-6.png",
+      "link": "",
+      "ratio": "6"
+    },
+    "worktime": {
+      "block_template": "system-title-and-content",
+      "title": "{{ messages.block_worktime_caption }}",
+      "content": "{{ messages.block_worktime_content }}"
+    },
+    "social_caption": {
+      "block_template": "system-title-and-content",
+      "title": "{{ messages.block_social_caption }}",
+      "content": "{{ messages.block_social_content }}"
+    },
+    "cart_discount": {
+      "block_template": "system-title-and-content",
+      "title": "{{ messages.cart_discount_title }}",
+      "content": "{{ messages.cart_discount_description }}"
+    },
+    "paymenttitle": {
+      "block_template": "system-title-and-content",
+      "title": "{{ messages.block_payments }}",
+      "content": "{{ messages.block_paymenttitle }}"
+    },
+     "visa": {
+      "block_template": "system-payments-social",
+      "type": "payment",
+      "name": "VISA",
+      "title": "VISA",
+      "image" : "visa.png"
+    },
+    "mastercard": {
+      "block_template": "system-payments-social",
+      "type": "payment",
+      "name": "mastercard",
+      "title": "mastercard",
+      "image" : "mastercard.png"
+    },
+    "qiwi": {
+      "block_template": "system-payments-social",
+      "type": "payment",
+      "name": "qiwi",
+      "title": "qiwi",
+      "image": "qiwi.png"
+    },
+     "yandex": {
+      "block_template": "system-payments-social",
+      "type": "payment",
+      "name": "yandex",
+      "title": "yandex",
+      "image": "yandexmoney.png"
+    },
+    "webmoney": {
+      "block_template": "system-payments-social",
+      "type": "payment",
+      "name": "webmoney",
+      "title": "webmoney",
+      "image": "webmoney.png"
+    },
+    "maestro": {
+      "block_template": "system-payments-social",
+      "type": "payment",
+      "name": "maestro",
+      "title": "maestro",
+      "image": "maestro.png"
+    },
+    "slide-1": {
+      "block_template": "system-promo-slider-2",
+      "title": "{{ messages.block_slide1 }}",
+      "name": "{{ messages.block_slide1 }}",
+      "link": "",
+      "description": "{{ messages.block_slide1 }}",
+      "image": "slide-1.png",
+      "button_title": "{{ messages.block_slide_button }}"
+    },
+    "slide-2": {
+      "block_template": "system-promo-slider-2",
+      "title": "{{ messages.block_slide2 }}",
+      "name": "{{ messages.block_slide2 }}",
+      "link": "",
+      "description": "{{ messages.block_slide2 }}",
+      "image": "slide-2.png",
+      "button_title": "{{ messages.block_slide_button }}"
+    },
+    "slide-3": {
+      "block_template": "system-promo-slider-2",
+      "title": "{{ messages.block_slide3 }}",
+      "name": "{{ messages.block_slide3 }}",
+      "link": "",
+      "description": "{{ messages.block_slide3 }}",
+      "image": "slide-3.png",
+      "button_title": "{{ messages.block_slide_button }}"
+    },
+    "benefit-1": {
+      "block_template": "system-benefit-2",
+      "title": "{{ messages.block_benefit1 }}",
+      "name": "{{ messages.block_benefit1 }}",
+      "description": "{{ messages.block_benefit1 }}",
+      "image": "benefit-1.png"
+    },
+    "benefit-2": {
+      "block_template": "system-benefit-2",
+      "title": "{{ messages.block_benefit2 }}",
+      "name": "{{ messages.block_benefit2 }}",
+      "description": "{{ messages.block_benefit2 }}",
+      "image": "benefit-2.png"
+    },
+    "benefit-3": {
+      "block_template": "system-benefit-2",
+      "title": "{{ messages.block_benefit3 }}",
+      "name": "{{ messages.block_benefit3 }}",
+      "description": "{{ messages.block_benefit3 }}",
+      "image": "benefit-3.png"
+    },
+    "benefit-4": {
+      "block_template": "system-benefit-2",
+      "title": "{{ messages.block_benefit3 }}",
+      "name": "{{ messages.block_benefit3 }}",
+      "description": "{{ messages.block_benefit3 }}",
+      "image": "benefit-4.png"
+    },
+    "phone": {
+      "title": "{{ messages.s_phone }}",
+      "content": "+7(999)123-45-67"
+    },
+    "email": {
+      "title": "{{ messages.s_email }}",
+      "content": "sales@company.ru"
+    },
+    "block-top-panel": {
+      "title": "{{ messages.block_top_panel }}",
+      "content": "{{ messages.block_top_panel }}"
+    },
+    "vkontakte": {
+      "block_template": "system-payments-social",
+      "type": "social",
+      "image": "vk_icon.png",
+      "name": "Vkontakte",
+      "title": "Vkontakte",
+      "link": "http://vk.com/"
+    },
+    "facebook": {
+      "block_template": "system-payments-social",
+      "type": "social",
+      "image": "fb_icon.png",
+      "name": "Facebook",
+      "title": "Facebook",
+      "link": "http://facebook.com/"
+    },
+    "google": {
+      "block_template": "system-payments-social",
+      "type": "social",
+      "image": "go_icon.png",
+      "name": "Google +",
+      "title": "Google",
+      "link": "http://google.ru/"
+    },
+    "instagram": {
+      "block_template": "system-payments-social",
+      "type": "social",
+      "image": "in_icon.png",
+      "name": "Instagram",
+      "title": "Instagram",
+      "link": "http://instagram.com/"
+    },
+    "youtube": {
+      "block_template": "system-payments-social",
+      "type": "social",
+      "image": "yt_icon.png",
+      "name": "YouTube",
+      "title": "YouTube",
+      "link": "http://youtube.com/"
+    },
+    "twitter": {
+      "block_template": "system-payments-social",
+      "type": "social",
+      "image": "tw_icon.png",
+      "name": "Twitter",
+      "title": "Twitter",
+      "link": "http://twitter.com/"
+    },
+    "products-1": {
+      "block_template": "system-special_products",
+      "title": "{{ messages.collection_frontpage }}",
+      "collection": "frontpage"
+    },
+    "products-2": {
+      "block_template": "system-special_products",
+      "title": "{{ messages.collection_popular }}",
+      "collection": "popular"
+    },
+    "feedback-form-1": {
+      "title": "{{ messages.block_feedback_title }}",
+      "submit-text": "{{ messages.button_submit }}",
+      "block_template": "system-widget-feedback"
+    },
+    "review-1": {
+      "block_template": "system-review-2",
+      "title": "{{ messages.snippet_reviews }}",
+      "name": "{{ messages.review-1-name }}",
+      "content": "{{ messages.review-1-content }}",
+      "image": "avatar.jpeg"
+    },
+    "review-2": {
+      "block_template": "system-review-2",
+      "title": "{{ messages.snippet_reviews }}",
+      "name": "{{ messages.review-2-name }}",
+      "content": "{{ messages.review-2-content }}",
+      "image": "avatar.jpeg"
+    },
+    "review-3": {
+      "block_template": "system-review-2",
+      "title": "{{ messages.snippet_reviews }}",
+      "name": "{{ messages.review-3-name }}",
+      "content": "{{ messages.review-3-content }}",
+      "image": "maint.jpg"
+    },
+    "image-text-1": {
+      "block_template": "system-image-and-content",
+      "title": "{{ messages.snippet_image_text }}",
+      "content": "{{ messages.image-text-content }}",
+      "image": "image-text-img.png"
+    },
+    "market-place": {
+      "block_template": "system-title-and-content",
+      "title": "{{ messages.panel_sidebar }}",
+      "content": "{{ messages.panel_sidebar_content }}"
+    },
+    "header_info": {
+      "block_template": "system-title-and-content",
+      "title": "{{ messages.header-info }}",
+      "content": "{{ messages.header-info-content }}"
+    }
+  },
+  "theme_widgets": {
+    "widget_lists": [
+      {
+        "name": "index",
+        "handle": "common_index-list",
+        "kind": "content",
+        "widgets": [
+          {
+            "name":"{{ messages.system_widget_promo_slider }}",
+            "data_handle":"promo-slider",
+            "widget_type":"system_widget_promo_slider",
+            "settings_data" : {
+              "palette": "palette_1"
+            }
+          },
+          {
+            "name":"{{ messages.system_widget_benefits }}",
+            "data_handle": "benefits",
+            "widget_type":"system_widget_benefits",
+            "settings_data" : {
+              "palette": "palette_1"
+            }
+          },
+          {
+            "name":"{{ messages.system_banner-list }}",
+            "data_handle":"banner-list",
+            "widget_type":"system_banner-list-1",
+            "settings_data" : {
+              "palette": "palette_1"
+            }
+          },
+          {
+            "name":"{{ messages.system_widget_special_products }}",
+            "data_handle": "special-products",
+            "widget_type":"system_widget_special_products-1",
+            "settings_data" : {
+              "palette": "palette_2"
+            }
+          },
+          {
+            "name":"{{ messages.system_reviews_top }}",
+            "data_handle": "reviews",
+            "widget_type":"system_reviews_top",
+            "settings_data" : {
+              "palette": "palette_1"
+            }
+          },
+          {
+            "name":"{{ messages.system_widget_image_text }}",
+            "data_handle":"image-text",
+            "widget_type":"system_widget_image_text",
+            "settings_data" : {
+              "palette": "palette_3"
+            }
+          },
+          {
+            "name":"{{ messages.system_widget_feedback }}",
+            "widget_type":"system_widget_feedback",
+            "settings_data" : {
+              "palette": "palette_1"
+            }
+          }
+        ]
+      },
+      {
+        "name": "header",
+        "handle": "common_header-list",
+        "kind": "header",
+        "widgets": [
+          {
+            "name": "{{ messages.system_top_panel }}",
+            "widget_type": "system_top_panel",
+            "settings_data" : {
+              "palette": "palette_1"
+            }
+          },
+          {
+            "name": "{{ messages.system_widget_header }}",
+            "widget_type": "system_widget_header-1",
+            "settings_data" : {
+              "palette": "palette_1"
+            }
+          },
+          {
+            "name": "{{ messages.system_header-menu }}",
+            "widget_type": "system_header-menu",
+            "settings_data" : {
+              "palette": "palette_1"
+            }
+          }
+        ]
+      },
+      {
+        "name": "footer",
+        "handle": "common_footer-list",
+        "kind": "footer",
+        "widgets": [
+          {
+            "name":"{{ messages.system_modal_backcall }}",
+            "widget_type":"system_modal_backcall",
+            "settings_data" : {
+              "palette": "palette_1"
+            }
+          },
+          {
+            "name":"{{ messages.system_modal_collection-filter }}",
+            "widget_type":"system_modal_collection-filter",
+            "settings_data" : {
+              "palette": "palette_1"
+            }
+          },
+          {
+            "name":"{{ messages.system_fly_panel }}",
+            "widget_type":"system_fly_panel",
+            "settings_data" : {
+              "palette": "palette_2"
+            }
+          },
+          {
+            "name":"{{ messages.system_notices }}",
+            "widget_type":"system_notices",
+            "settings_data" : {
+              "palette": "palette_2"
+            }
+          },
+          {
+            "name":"{{ messages.system_widget_footer }}",
+            "data_handle": "payment",
+            "widget_type":"system_widget_footer-1",
+            "settings_data" : {
+              "palette": "palette_1"
+            }
+          }
+        ]
+      },
+      {
+        "name": "feedback",
+        "handle": "common_feedback-list",
+        "kind": "content",
+        "widgets": [
+          {
+            "name":"{{ messages.system_breadcrumb }}",
+            "widget_type":"system_breadcrumb",
+            "settings_data" : {
+              "palette": "palette_1"
+            }
+          },
+          {
+            "name":"{{ messages.system_page-title }}",
+            "widget_type":"system_page-title",
+            "settings_data" : {
+              "palette": "palette_1"
+            }
+          },
+          {
+            "name":"{{ messages.system_widget_feedback-page }}",
+            "widget_type":"system_widget_feedback-page",
+            "settings_data" : {
+              "palette": "palette_1"
+            }
+          }
+        ]
+      },
+      {
+        "name": "sidebar",
+        "handle": "common_sidebar-list",
+        "kind": "sidebar",
+        "widgets": [
+          {
+            "name":"{{ messages.system_sidebar-menu }}",
+            "widget_type":"system_sidebar-menu",
+            "settings_data" : {
+              "palette": "palette_1"
+            }
+          },
+          {
+            "name":"{{ messages.system_sidebar-filter }}",
+            "widget_type":"system_sidebar-filter",
+            "settings_data" : {
+              "palette": "palette_3"
+            }
+          },
+          {
+            "name":"{{ messages.system_sidebar-news }}",
+            "widget_type":"system_sidebar-news",
+            "settings_data" : {
+              "palette": "palette_3"
+            }
+          }
+        ]
+      },
+      {
+        "name": "sidebar-blog",
+        "handle": "common_sidebar-blog_list",
+        "kind": "sidebar",
+        "widgets": [
+          {
+            "name":"{{ messages.system_sidebar-news-blog }}",
+            "widget_type":"system_sidebar-news-blog",
+            "settings_data" : {
+              "palette": "palette_3"
+            }
+          },
+          {
+            "name":"{{ messages.system_sidebar-tags }}",
+            "widget_type":"system_sidebar-tags",
+            "settings_data" : {
+              "palette": "palette_3"
+            }
+          }
+        ]
+      },
+      {
+        "name": "collection",
+        "handle": "common_collection-list",
+        "kind": "content",
+        "widgets": [
+          {
+            "name":"{{ messages.system_breadcrumb }}",
+            "widget_type":"system_breadcrumb",
+            "settings_data" : {
+              "palette": "palette_1"
+            }
+          },
+          {
+            "name":"{{ messages.system_page-title }}",
+            "widget_type":"system_page-title",
+            "settings_data" : {
+              "palette": "palette_1"
+            }
+          },
+          {
+            "name":"{{ messages.system_collection-description }}",
+            "widget_type":"system_collection-description",
+            "settings_data" : {
+              "palette": "palette_1"
+            }
+          },
+          {
+            "name":"{{ messages.system_collection-subcollections }}",
+            "widget_type":"system_collection-subcollections-1",
+            "settings_data" : {
+              "palette": "palette_1"
+            }
+          },
+          {
+            "name":"{{ messages.system_collection-toolbar }}",
+            "widget_type":"system_collection-toolbar",
+            "settings_data" : {
+              "palette": "palette_1"
+            }
+          },
+          {
+            "name":"{{ messages.system_collection-products }}",
+            "widget_type":"system_collection-products-1",
+            "settings_data" : {
+              "palette": "palette_1"
+            }
+          },
+          {
+            "name":"{{ messages.system_pagination }}",
+            "widget_type":"system_pagination-1",
+            "settings_data" : {
+              "palette": "palette_3"
+            }
+          },
+          {
+            "name":"{{ messages.system_seo-description }}",
+            "widget_type":"system_seo-description",
+            "settings_data" : {
+              "palette": "palette_1"
+            }
+          }
+        ]
+      },
+      {
+        "name": "blog",
+        "handle": "common_blog-list",
+        "kind": "content",
+        "widgets": [
+          {
+            "name":"{{ messages.system_breadcrumb }}",
+            "widget_type":"system_breadcrumb",
+            "settings_data" : {
+              "palette": "palette_1"
+            }
+          },
+          {
+            "name":"{{ messages.system_article-preview }}",
+            "widget_type":"system_article-preview",
+            "settings_data" : {
+              "palette": "palette_1"
+            }
+          },
+          {
+            "name":"{{ messages.system_pagination }}",
+            "widget_type":"system_pagination-1",
+            "settings_data" : {
+              "palette": "palette_3"
+            }
+          }
+        ]
+      },
+      {
+        "name": "article",
+        "handle": "common_article-list",
+        "kind": "content",
+        "widgets": [
+          {
+            "name":"{{ messages.system_breadcrumb }}",
+            "widget_type":"system_breadcrumb",
+            "settings_data" : {
+              "palette": "palette_1"
+            }
+          },
+          {
+            "name":"{{ messages.system_article }}",
+            "widget_type":"system_article",
+            "settings_data" : {
+              "palette": "palette_1"
+            }
+          },
+          {
+            "name":"{{ messages.system_product-article }}",
+            "widget_type":"system_product-article-1",
+            "settings_data" : {
+              "palette": "palette_2"
+            }
+          }
+        ]
+      },
+      {
+        "name": "product",
+        "handle": "common_product-list",
+        "kind": "content",
+        "widgets": [
+          {
+            "name":"{{ messages.system_breadcrumb }}",
+            "widget_type":"system_breadcrumb",
+            "settings_data" : {
+              "palette": "palette_1"
+            }
+          },
+          {
+            "name":"{{ messages.system_product }}",
+            "widget_type":"system_product-1",
+            "settings_data" : {
+              "palette": "palette_1"
+            }
+          },
+          {
+            "name":"{{ messages.system_product-tabs }}",
+            "widget_type":"system_product-tabs",
+            "settings_data" : {
+              "palette": "palette_2"
+            }
+          },
+          {
+            "name":"{{ messages.system_product-related }}",
+            "widget_type":"system_product-related-1",
+            "settings_data" : {
+              "palette": "palette_2"
+            }
+          },
+          {
+            "name":"{{ messages.system_product-similar }}",
+            "widget_type":"system_product-similar-1",
+            "settings_data" : {
+              "palette": "palette_2"
+            }
+          }
+        ]
+      },
+      {
+        "name": "search",
+        "handle": "common_search-list",
+        "kind": "content",
+        "widgets": [
+          {
+            "name":"{{ messages.system_breadcrumb }}",
+            "widget_type":"system_breadcrumb",
+            "settings_data" : {
+              "palette": "palette_1"
+            }
+          },
+          {
+            "name":"{{ messages.system_page-title }}",
+            "widget_type":"system_page-title",
+            "settings_data" : {
+              "palette": "palette_1"
+            }
+          },
+          {
+            "name":"{{ messages.system_search-toolbar }}",
+            "widget_type":"system_search-toolbar",
+            "settings_data" : {
+              "palette": "palette_1"
+            }
+          },
+          {
+            "name":"{{ messages.system_search-results }}",
+            "widget_type":"system_search-results",
+            "settings_data" : {
+              "palette": "palette_1"
+            }
+          },
+          {
+            "name":"{{ messages.system_pagination }}",
+            "widget_type":"system_pagination-1",
+            "settings_data" : {
+              "palette": "palette_3"
+            }
+          }
+        ]
+      },
+      {
+        "name": "compare",
+        "handle": "common_compare-list",
+        "kind": "content",
+        "widgets": [
+          {
+            "name":"{{ messages.system_breadcrumb }}",
+            "widget_type":"system_breadcrumb",
+            "settings_data" : {
+              "palette": "palette_1"
+            }
+          },
+          {
+            "name":"{{ messages.system_page-title }}",
+            "widget_type":"system_page-title",
+            "settings_data" : {
+              "palette": "palette_1"
+            }
+          },
+          {
+            "name":"{{ messages.system_compare-toolbar }}",
+            "widget_type":"system_compare-toolbar",
+            "settings_data" : {
+              "palette": "palette_1"
+            }
+          },
+          {
+            "name":"{{ messages.system_compare-results }}",
+            "widget_type":"system_compare-results",
+            "settings_data" : {
+              "palette": "palette_1"
+            }
+          }
+        ]
+      },
+      {
+        "name": "cart",
+        "handle": "common_cart-list",
+        "kind": "content",
+        "widgets": [
+          {
+            "name":"{{ messages.system_page-title }}",
+            "widget_type":"system_page-title",
+            "settings_data" : {
+              "palette": "palette_1"
+            }
+          },
+          {
+            "name":"{{ messages.system_cart }}",
+            "widget_type":"system_cart-1",
+            "settings_data" : {
+              "palette": "palette_1"
+            }
+          }
+        ]
+      }
+    ],
+    "widget_types": []
+  }
+}

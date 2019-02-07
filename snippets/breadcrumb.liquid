@@ -1,0 +1,138 @@
+  <ul class="breadcrumb list-unstyled" itemscope itemtype="http://schema.org/BreadcrumbList">
+
+    <li class="breadcrumb-item home" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+      <a class="breadcrumb-link" href="/" itemprop="item">
+        <span itemprop="name">Главная</span>
+        <meta itemprop="position" content="0">
+      </a>
+    </li>
+
+    {% case template %}
+
+      {% when 'page' %}
+        <li class="breadcrumb-item" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+          <span class="breadcrumb-link current-page" itemprop="name">{{ page.title }}</span>
+          <meta itemprop="position" content="1">
+        </li>
+
+      {% when 'search' %}
+        <li class="breadcrumb-item" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+          <span class="breadcrumb-link current-page" itemprop="name">{{ messages.search_title }}</span>
+          <meta itemprop="position" content="1">
+        </li>
+
+      {% when 'blog' %}
+        {% assign with_tag = false %}
+        {% if blog.tags.first.current? %}
+          {% assign with_tag = true %}
+        {% endif %}
+        <li class="breadcrumb-item" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+          {% if with_tag %}
+            <a itemprop="item" href="{{ blog.url }}" class="breadcrumb-link"><span itemprop="name">{{ blog.title }}</span><meta itemprop="position" content="{{collection.level_difference?}}"></a>
+          {% else %}
+            <span class="breadcrumb-link current-page" itemprop="name">{{ blog.title }}</span>
+            <meta itemprop="position" content="1">
+          {% endif %}
+        </li>
+
+        {% if with_tag %}
+          <li class="breadcrumb-item" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            <span class="breadcrumb-link current-page" itemprop="name">{{ blog.tags.first.title }}</span>
+            <meta itemprop="position" content="1">
+          </li>
+        {% endif %}
+
+      {% when 'article' %}
+        <li class="breadcrumb-item" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+          <a class="breadcrumb-link" title='{{ blog.title }}' itemprop="item" href="{{ blog.url }}"><span itemprop="name">{{ blog.title }}</span><meta itemprop="position" content="{{collection.level_difference?}}"></a>
+        </li>
+
+        <li class="breadcrumb-item" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+          <span class="breadcrumb-link current-page" itemprop="name">{{ article.title }}</span>
+          <meta itemprop="position" content="1">
+        </li>
+
+      {% when 'cart' %}
+        <li class="breadcrumb-item" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+          <span class="breadcrumb-link current-page" itemprop="name">{{ messages.cart_title }}</span>
+          <meta itemprop="position" content="1">
+        </li>
+
+      {% when 'compare' %}
+        <li class="breadcrumb-item" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+          <span class="breadcrumb-link current-page" itemprop="name">{{ messages.comparison_title }}</span>
+          <meta itemprop="position" content="1">
+        </li>
+
+      {% when 'collection' %}
+        {% if current_collections.size == 1 %}
+          <li class="breadcrumb-item" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            <span class="breadcrumb-link current-page" itemprop="name">{{ collection.title }}</span>
+            <meta itemprop="position" content="1">
+          </li>
+        {% elsif current_collections.size > 0 %}
+
+          {% for collection in current_collections %}
+            {% if collection.level > 0 %}
+              {% if forloop.last %}
+                <li class="breadcrumb-item" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+                  <span class="breadcrumb-link current-page" itemprop="name">{{ collection.title }}</span>
+                  <meta itemprop="position" content="{{collection.level}}">
+                </li>
+              {% else %}
+                <li class="breadcrumb-item" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+                  <a class="breadcrumb-link" title='{{ collection.title }}' itemprop="item" href="{{ collection.url }}"><span itemprop="name">{{ collection.title }}</span><meta itemprop="position" content="{{collection.level_difference?}}"></a>
+                </li>
+              {% endif %}
+            {% endif %}
+          {% endfor %}
+
+        {% endif %}
+
+      {% when 'product' %}
+        {% comment %}
+          мы перешли в товар из корня каталога
+        {% endcomment %}
+        {% if current_collections.size == 1 %}
+          {% assign path = current_collections %}
+          {% assign ignor_root = false %}
+
+        {% elsif current_collections.size > 1 %}
+          {% assign path = current_collections %}
+          {% assign ignor_root = true %}
+
+        {% else %}
+
+          {% assign deep_collection = product.collections.first %}
+          {% if product.collections.size > 1 %}
+            {% for collection in product.collections %}
+              {% if deep_collection.level < collection.level %}
+                {% assign deep_collection = collection %}
+              {% endif %}
+            {% endfor %}
+          {% endif %}
+
+          {% assign path = deep_collection.current_collections %}
+
+        {% endif %}
+
+        {% assign show_link = true %}
+        {% for collection in path %}
+          {% if collection.level == 0 and ignor_root %}
+            {% assign show_link = false %}
+          {% endif %}
+
+          {% if show_link %}
+            <li class="breadcrumb-item" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+              <a class="breadcrumb-link" title='{{ collection.title }}' itemprop="item" href="{{ collection.url }}"><span itemprop="name">{{ collection.title }}</span><meta itemprop="position" content="{{collection.level_difference?}}"></a>
+            </li>
+          {% endif %}
+
+          {% assign show_link = true %}
+        {% endfor %}
+
+    {% endcase %}
+
+  </ul>
+{% assign show_link = null %}
+{% assign path = null %}
